@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Greg Bakos <greg@londonfreelancers.co.uk>
  */
-public class singup extends HttpServlet {
+public class login extends HttpServlet {
 
     /**
      * Processes requests for both HTTP
@@ -36,14 +36,14 @@ public class singup extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet singup</title>");            
+            out.println("<title>Servlet login</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet singup at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+            out.println("<h1>Servlet login at " + request.getContextPath() + "</h1>");
+            //out.println("</body>");
+            //out.println("</html>");
         } finally {            
-            out.close();
+            //out.close();
         }
     }
 
@@ -75,7 +75,15 @@ public class singup extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+            response.setContentType("text/html;charset=UTF-8");
+            PrintWriter out1 = response.getWriter();
+            processRequest(request, response);
+            String mail = request.getParameter("email");
+            out1.println("<h2>"+"Hello to </h2> <h3>"+mail+"</h3> <h2>  by Nishant"+"</h2>"+"</BR>"+"<p>"+"Site is Under Development. Please visit again after some time.</p></BR><h3>"+"Thanks For Visiting"+"</h3>");
+            out1.println("</body>");
+            out1.println("</html>");
+            out1.close();
+            
     }
 
     /**
