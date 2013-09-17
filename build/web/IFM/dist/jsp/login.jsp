@@ -1,7 +1,7 @@
 <%-- 
     Document   : login
     Created on : 17 Sep, 2013, 10:59:55 AM
-    Author     : Greg Bakos <greg@londonfreelancers.co.uk>
+    Author     : Nishant
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

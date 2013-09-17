@@ -14,7 +14,7 @@
     </servlet>
     <servlet>
         <servlet-name>Signup</servlet-name>
-        <servlet-class>servlet.Signup</servlet-class>
+        <servlet-class>servlet.controller.Signup</servlet-class>
         <init-param>
             <param-name>user</param-name>
             <param-value>name</param-value>
@@ -26,11 +26,11 @@
     </servlet>
     <servlet>
         <servlet-name>login</servlet-name>
-        <servlet-class>servlet.login</servlet-class>
+        <servlet-class>servlet.controller.login</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>topbar</servlet-name>
-        <servlet-class>servlet.topbar</servlet-class>
+        <servlet-class>servlet.controller.topbar</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
