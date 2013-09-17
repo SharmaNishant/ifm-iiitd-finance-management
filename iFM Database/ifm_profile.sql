@@ -34,6 +34,7 @@ CREATE TABLE `profile` (
   `Stream/Department` varchar(100) DEFAULT NULL,
   `City` varchar(100) DEFAULT NULL,
   `Designation` varchar(100) DEFAULT NULL,
+  `Verfied` varchar(25) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`Email`),
   UNIQUE KEY `Email_UNIQUE` (`Email`),
   UNIQUE KEY `ContactNumber_UNIQUE` (`ContactNumber`),
@@ -47,7 +48,7 @@ CREATE TABLE `profile` (
 
 LOCK TABLES `profile` WRITE;
 /*!40000 ALTER TABLE `profile` DISABLE KEYS */;
-INSERT INTO `profile` VALUES ('Albert Einstien','000000132','slovakia chek zuru road','alben@mc2.com','faculty','342422','','germany','scientist'),('CarlJohnson','123458349','sanandreas street','cj@sa.com','faculty','e12323',NULL,'san francisco',NULL),('Mayank','8934348933','123,red fort lal quila','mayank@iiitd.ac.in','student','11070','cse','ghaziabad',NULL),('Nishant Sharma','34458783434','421,ononfof','nishant@iiitd.ac.in','student','11069','cse','delhi',''),('Priyam kumar','7838859446','1306,kanchanjunga tower kaushambi ','priyam11083@iiitd.a.cin','student','11083','cse','ghaziabad',''),('Rishav','34934900343','421,chandni chowk chhavri bazaar','rishav@iiitd.ac.in','student','11089','cse','delhi',NULL),('Shinchan','3423234454','chun guana street bolkare','shin@chan.com','student','11081','cse','china',''),('Honey Singh','2343253580','shivpuri road ','singh@honey.com','student','12120','cse','punjab',NULL),('Eminem','349231241','rapper street','slimshady@google.com','student','11090','cse','chicago','singer'),('sourabh arya','09093543434','123,cp road ','souarbh@iiitd.ac.in','faculty','e13440',NULL,'delhi',NULL),('gdfsdf','334324','fdsfdsfds','t@y.com','staff','e133','cse','gs','s'),('tommy','4534534632','balton street ','tom@yahoo.com','staff','e45134',NULL,'new york','servant');
+INSERT INTO `profile` VALUES ('Mayank Garg','7834342355','okhla phase-2','mayank11065@iiitd.ac.in','student','11065','cse','delhi',NULL,'Yes'),('Nishant Sharma','8588242432','okhla phase-4','nishant11070@iiitd.ac.in','student','11070','cse','delhi',NULL,'Yes'),('Priyam Kumar','7838859432','okhla phase-1','priyam11083@iiitd.ac.in','student','11083','cse','delhi',NULL,'Yes'),('Rishav Jain','8588343412','okhla phase-2','rishav11088@iiitd.ac.in','student','11088','cse','delhi',NULL,'yes'),('Sourabh Arya','8450341232','okhla phase-2','saurabh11100@iiitd.ac.in','student','11100','cse','delhi',NULL,'Yes');
 /*!40000 ALTER TABLE `profile` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -60,4 +61,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-09-16 20:38:55
+-- Dump completed on 2013-09-17 18:31:49

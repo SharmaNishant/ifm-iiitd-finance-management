@@ -18,31 +18,35 @@ USE `ifm`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `password`
+-- Table structure for table `temp_profile`
 --
 
-DROP TABLE IF EXISTS `password`;
+DROP TABLE IF EXISTS `temp_profile`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `password` (
-  `Pass` varchar(25) NOT NULL,
+CREATE TABLE `temp_profile` (
+  `Name` varchar(100) NOT NULL,
+  `ContactNumber` varchar(100) NOT NULL,
+  `Address` varchar(100) NOT NULL,
   `Email` varchar(45) NOT NULL,
+  `Student/Faculty/Staff` varchar(100) NOT NULL,
+  `RollNumber/Emp_ID` varchar(100) NOT NULL,
+  `Stream/Department` varchar(100) DEFAULT NULL,
+  `City` varchar(100) NOT NULL,
+  `Designation` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`Email`),
-  UNIQUE KEY `Email_UNIQUE` (`Email`),
-  KEY `Email_idx` (`Pass`),
-  KEY `Passmail_idx` (`Email`),
-  CONSTRAINT `Passmail` FOREIGN KEY (`Email`) REFERENCES `profile` (`Email`) ON DELETE CASCADE
+  UNIQUE KEY `Email_UNIQUE` (`Email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `password`
+-- Dumping data for table `temp_profile`
 --
 
-LOCK TABLES `password` WRITE;
-/*!40000 ALTER TABLE `password` DISABLE KEYS */;
-INSERT INTO `password` VALUES ('mayank','mayank11065@iiitd.ac.in'),('nishant','nishant11070@iiitd.ac.in'),('priyam','priyam11083@iiitd.ac.in'),('rishav','rishav11088@iiitd.ac.in'),('saurabh','saurabh11100@iiitd.ac.in');
-/*!40000 ALTER TABLE `password` ENABLE KEYS */;
+LOCK TABLES `temp_profile` WRITE;
+/*!40000 ALTER TABLE `temp_profile` DISABLE KEYS */;
+INSERT INTO `temp_profile` VALUES ('Mayank Garg','7834342355','okhla phase-2','mayank11065@iiitd.ac.in','student','11065','cse','delhi',NULL),('Nishant Sharma','8588242432','okhla phase-4','nishant11070@iiitd.ac.in','student','11070','cse','delhi',NULL),('Priyam Kumar','7838859432','okhla phase-1','priyam11083@iiitd.ac.in','student','11083','cse','delhi',NULL),('Rishav Jain','8588343412','okhla phase-2','rishav11088@iiitd.ac.in','student','11088','cse','delhi',NULL),('Sourabh Arya','8450341232','okhla phase-2','saurabh11100@iiitd.ac.in','student','11100','cse','delhi',NULL);
+/*!40000 ALTER TABLE `temp_profile` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
