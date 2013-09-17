@@ -65,7 +65,7 @@ public class login {
      * @param email
      * @return 
      */
-    public static String[] getDetails(String email) {
+    public String[] getDetails(String email) {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/ifm", "root", "admin");
@@ -105,15 +105,63 @@ public class login {
         return null;
     }
     
-//    //  FOR TESTING FUNCTIONS IN THIS CLASS ONLY
-//     
-//     
-//    public static void main(String[] args) {
-//        String[] str = getDetails("rishav1088@iiitd.ac.in");
-//        
-//        for(int i=0;i<str.length;i++) {
-//            System.out.println(str[i]);
-//        }
-//    }
+    /**
+     * Adds a new user to the database, and marks it as unverified
+     * 
+     * @param newProfile
+     * @return 1 for success, 0 for failure
+     */
+    public int addUnverifiedUser(ProfileDetails newProfile) {
+        
+        String statement = "INSERT INTO profile VALUES ("
+                + "'" + newProfile.Name + "',\r\n"
+                + "'" + newProfile.ContactNumber + "',\r\n"
+                + "'" + newProfile.Address + "',\r\n"
+                + "'" + newProfile.Email + "',\r\n"
+                + "'" + newProfile.RoleInstitute + "',\r\n"
+                + "'" + newProfile.ID + "',\r\n"
+                + "'" + newProfile.Department + "',\r\n"
+                + "'" + newProfile.City + "',\r\n"
+                + "'" + newProfile.Designation + "',\r\n"
+                + "'NO')";
+        
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/ifm", "root", "admin");
+            
+            Statement smt = conn.createStatement();
+                                    
+            smt.executeUpdate(statement);                        
+            
+            smt.close();
+            
+            return 1;
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return 0;
+    }
     
+////    //  FOR TESTING FUNCTIONS IN THIS CLASS ONLY
+////     
+////     
+////    public static void main(String[] args) {
+////        
+////        ProfileDetails tmp = new ProfileDetails();
+////        
+////        tmp.Address = "xxxxxxxxxx";
+////        tmp.City = "aaaaaaaaa";
+////        tmp.ContactNumber="asdasdas";
+////        tmp.Department = "ssssssssf";
+////        tmp.Designation = "vvvvvvvvvv";
+////        tmp.Email="sssssss";
+////        tmp.ID="aaaaaaaa";
+////        tmp.Name="sssssssssss";
+////        tmp.RoleInstitute="sffffffffff";
+////        
+////        addUnverifiedUser(tmp);               
+////    }
+//    
 }
