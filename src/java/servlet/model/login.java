@@ -13,28 +13,8 @@ import java.util.logging.Logger;
  * @author Nishant
  */
 public class login {
-    
-    public void login() {  
-        try {  
-            Class.forName("com.mysql.jdbc.Driver");  
-            Connection connection = DriverManager.getConnection(  
-                    "jdbc:mysql://localhost:3306/EMPLOYEE", "root", "root");  
-            Statement statement = connection.createStatement();  
-            ResultSet resultSet = statement  
-                    .executeQuery("SELECT EMPNAME FROM EMPLOYEEDETAILS");  
-            }
-        catch (Exception e) {  
-            e.printStackTrace();  
-        }  
-    }
-    
-    /**
-     * This function searches for password corresponding to email address.
-     * 
-     * @param email
-     * @return password
-     */
-    public String getPassword(String email) {
+
+     public static String getPassword(String email) {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/ifm", "root", "admin");
@@ -56,13 +36,6 @@ public class login {
         } catch (SQLException ex) {
             Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return null;
     }
-    
-    /*  FOR TESTING FUNCTIONS IN THIS CLASS ONLY
-     * 
-     
-    public static void main(String[] args) {
-        System.out.println(getPassword("rishav11088@iiitd.ac.in"));
-    }
-    * /
 }
