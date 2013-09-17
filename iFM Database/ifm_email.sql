@@ -18,31 +18,30 @@ USE `ifm`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `password`
+-- Table structure for table `email`
 --
 
-DROP TABLE IF EXISTS `password`;
+DROP TABLE IF EXISTS `email`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `password` (
-  `Pass` varchar(25) NOT NULL,
-  `Email` varchar(45) NOT NULL,
-  PRIMARY KEY (`Email`),
-  UNIQUE KEY `Email_UNIQUE` (`Email`),
-  KEY `Email_idx` (`Pass`),
-  KEY `Passmail_idx` (`Email`),
-  CONSTRAINT `Passmail` FOREIGN KEY (`Email`) REFERENCES `profile` (`Email`) ON DELETE CASCADE
+CREATE TABLE `email` (
+  `Verified` varchar(25) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `email` varchar(45) NOT NULL,
+  `Token` varchar(45) NOT NULL,
+  PRIMARY KEY (`email`),
+  UNIQUE KEY `email_UNIQUE` (`email`),
+  CONSTRAINT `email` FOREIGN KEY (`email`) REFERENCES `profile` (`Email`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `password`
+-- Dumping data for table `email`
 --
 
-LOCK TABLES `password` WRITE;
-/*!40000 ALTER TABLE `password` DISABLE KEYS */;
-INSERT INTO `password` VALUES ('mayank','mayank11065@iiitd.ac.in'),('nishant','nishant11070@iiitd.ac.in'),('priyam','priyam11083@iiitd.ac.in'),('rishav','rishav11088@iiitd.ac.in'),('saurabh','saurabh11100@iiitd.ac.in');
-/*!40000 ALTER TABLE `password` ENABLE KEYS */;
+LOCK TABLES `email` WRITE;
+/*!40000 ALTER TABLE `email` DISABLE KEYS */;
+INSERT INTO `email` VALUES ('Yes','mayank11065@iiitd.ac.in','string'),('Yes','nishant11070@iiitd.ac.in','string'),('Yes','priyam11083@iiitd.ac.in','string'),('Yes','rishav11088@iiitd.ac.in','string'),('Yes','saurabh11100@iiitd.ac.in','string');
+/*!40000 ALTER TABLE `email` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
