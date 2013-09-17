@@ -78,6 +78,7 @@ public class login extends HttpServlet {
             PrintWriter out1 = response.getWriter();
             processRequest(request, response);
             String mail = request.getParameter("email");
+            String pass = request.getParameter("pass");
             out1.println("<h2>"+"Hello to </h2> <h3>"+mail+"</h3> <h2>  by Nishant"+"</h2>"+"</BR>"+"<p>"+"Site is Under Development. Please visit again after some time.</p></BR><h3>"+"Thanks For Visiting"+"</h3>");
             out1.println("</body>");
             out1.println("</html>");
