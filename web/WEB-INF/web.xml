@@ -32,6 +32,18 @@
         <servlet-name>topbar</servlet-name>
         <servlet-class>servlet.controller.topbar</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>vAcc</servlet-name>
+        <servlet-class>servlet.controller.vAcc</servlet-class>
+        <init-param>
+            <param-name>mail</param-name>
+            <param-value>email</param-value>
+        </init-param>
+        <init-param>
+            <param-name>token</param-name>
+            <param-value>token</param-value>
+        </init-param>
+    </servlet>
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
         <url-pattern>*.htm</url-pattern>
@@ -47,6 +59,10 @@
     <servlet-mapping>
         <servlet-name>topbar</servlet-name>
         <url-pattern>/topbar</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>vAcc</servlet-name>
+        <url-pattern>/vAcc</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

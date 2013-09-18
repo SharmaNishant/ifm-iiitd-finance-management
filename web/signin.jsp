@@ -45,7 +45,7 @@
     </div>
     <div class="container">
 
-        <form class="form-signin" method="POST" action="../../login">
+        <form class="form-signin" method="POST" action="login">
 		<h2><br></h2>
         <h2 class="form-signin-heading">Please sign in</h2>
         <input type="text" class="form-control" name="mail" placeholder="Email address" autofocus>

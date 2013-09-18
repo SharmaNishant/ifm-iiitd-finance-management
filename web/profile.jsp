@@ -12,10 +12,10 @@
     <title>Profile</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="IFM/dist/css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="IFM/dist/css/navbar-fixed-top.css" rel="stylesheet">
+    <link href="css/navbar-fixed-top.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -43,7 +43,7 @@
           <ul class="nav navbar-nav">
             <li><a href="#">Home</a></li>
             <li class="active"><a href="#profile">Profile</a></li>
-            <li><a href="#transaction">Transaction</a></li>
+            <li><a href="transaction.jsp">Transaction</a></li>
             
             </li>
           </ul>
@@ -51,7 +51,7 @@
             <li><a href="../navbar/">Settings</a></li>
                         
 			<li class="dropdown">
-              <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"><img src="IFM/images/S.jpg"  
+              <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"><img src="images/S.jpg"  
 			  style="width:20px;height:20px;" class="img-circle" id="navbarimg"> &nbsp;<% out.print(re[0]); %><b class="caret"></b></a>
               <ul class="dropdown-menu" role = "menu">
                 <li><a href="#">Change Password</a></li>
@@ -94,7 +94,7 @@
 				<h1></h1>
 					
 				<h2><br></h2>
-				&nbsp;&nbsp;&nbsp;&nbsp;<img src="IFM/images/userPic/<%out.print(re[3]); %>.jpg " name = "user_pic"height = "200" width = "200" alt="" class="img-rounded">
+				&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/userPic/<%out.print(re[3]); %>.jpg " name = "user_pic"height = "200" width = "200" alt="" class="img-rounded">
 				</div>
 			</div>
 		</div>
@@ -147,37 +147,37 @@
 				  <col width="450">
 				  
 				<tr>
-					<td> <img src = "IFM/images/name.jpg " height = "60" width = "60"></img></td>
+					<td> <img src = "images/name.jpg " height = "60" width = "60"></img></td>
 					<td> <h3><b> Name  </b></h3></td>
                     <td> <h3 name="user_name"> <% out.print(re[0]); %> </h3></td>
 				</tr>
 				
 				<tr>
-					<td> <img src = "IFM/images/mail.jpg" height = "60" width = "60"></img></td>
+					<td> <img src = "images/mail.jpg" height = "60" width = "60"></img></td>
 					<td> <h3><b> E-mail  </b></h3></td>
 					<td> <h3 name="user_email"><% out.print(re[3]); %></h3></td>
 				</tr>
 
 				<tr>
-					<td> <img src = "IFM/images/phone.jpg" height = "60" width = "60"></img></td>
+					<td> <img src = "images/phone.jpg" height = "60" width = "60"></img></td>
 					<td> <h3><b> Phone  </b></h3></td>
 					<td> <h3 name="user_phn"><% out.print(re[1]); %></h3></td>
 				</tr>
 				
 				<tr>
-					<td> <img src = "IFM/images/address.png" height = "60" width = "60"></img></td>
+					<td> <img src = "images/address.png" height = "60" width = "60"></img></td>
 					<td> <h3><b> Address </b></h3></td>
 					<td> <h3 name="user_addr"><% out.print(re[2]);%></h3></td>
 				</tr>
 				
 				<tr>
-					<td> <img src = "IFM/images/role.gif" height = "60" width = "60"></img></td>
+					<td> <img src = "images/role.gif" height = "60" width = "60"></img></td>
 					<td> <h3><b> Role  </b></h3></td>
 					<td> <h3 name="user_role"><% out.print(re[4]);%></h3></td>
 				</tr>
 				
 				<tr>
-					<td> <img src = "IFM/images/designation.jpg" height = "60" width = "60"></img></td>
+					<td> <img src = "images/designation.jpg" height = "60" width = "60"></img></td>
 					<td> <h3><b> Designation  </b></h3></td>
 					<td> <h3 name="user_designation"><% out.print(re[8]);%></h3></td>
 				</tr>
