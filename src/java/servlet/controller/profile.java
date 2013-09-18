@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Greg Bakos <greg@londonfreelancers.co.uk>
  */
-public class login extends HttpServlet {
+public class profile extends HttpServlet {
 
     /**
      * Processes requests for both HTTP
@@ -30,26 +30,8 @@ public class login extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String mail= request.getParameter("mail");//.getAttribute("mail").toString();
-        String mailcheck[] = model.login.getDetails(mail);
-        if(mailcheck==null)
-        {
-            request.getRequestDispatcher("IFM/dist/signin.jsp").forward(request, response);
-        }
-        String pass= request.getParameter("pass");
-        String result = model.login.getPassword(mail);
-        if(result.equals(pass))
-        {
-            String res[] = model.login.getDetails(mail);
-            request.setAttribute("profile", res);
-            request.getRequestDispatcher("IFM/dist/profile.jsp").forward(request, response);
-        }
-        else
-        {
-            //System.out.println(request.getContextPath());
-            //request.getServerPort();
-            request.getRequestDispatcher(request.getContextPath()+"/../IFM/dist/signin.jsp").forward(request, response);///.forward(request, response);
-        }
+        PrintWriter out = response.getWriter();
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
