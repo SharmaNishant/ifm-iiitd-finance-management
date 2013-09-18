@@ -16,10 +16,13 @@
                 </library>
                 <library dirs="200">
                     <file>${file.reference.mysql-connector-java-5.1.26-bin.jar}</file>
+                    <path-in-war>WEB-INF/lib</path-in-war>
+                </library>
+                <library dirs="200">
+                    <file>${file.reference.NetBeansProjects-test}</file>
                 </library>
                 <library dirs="200">
                     <file>${file.reference.mysql-connector-java-5.1.26-bin.jar-1}</file>
-                    <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
             </web-module-libraries>
             <web-module-additional-libraries/>

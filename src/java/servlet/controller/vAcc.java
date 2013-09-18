@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Greg Bakos <greg@londonfreelancers.co.uk>
  */
-public class login extends HttpServlet {
+public class vAcc extends HttpServlet {
 
     /**
      * Processes requests for both HTTP
@@ -30,25 +30,20 @@ public class login extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String mail= request.getParameter("mail");//.getAttribute("mail").toString();
-        String mailcheck[] = servlet.model.login.getDetails(mail);
-        if(mailcheck==null)
-        {
-            request.getRequestDispatcher("signin.jsp").forward(request, response);
-        }
-        String pass= request.getParameter("pass");
-        String result = servlet.model.login.getPassword(mail);
-        if(result.equals(pass))
-        {
-            String res[] = servlet.model.login.getDetails(mail);
-            request.setAttribute("profile", res);
-            request.getRequestDispatcher("profile.jsp").forward(request, response);
-        }
-        else
-        {
-            //System.out.println(request.getContextPath());
-            //request.getServerPort();
-            request.getRequestDispatcher("signin.jsp").forward(request, response);///.forward(request, response);
+        PrintWriter out = response.getWriter();
+        try {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet vAcc</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet vAcc at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
+        } finally {            
+            out.close();
         }
     }
 
