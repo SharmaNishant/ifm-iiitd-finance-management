@@ -1,4 +1,10 @@
 <!DOCTYPE html>
+<%@page import = "java.util.*" %>
+<%@page import = "com.google.appengine.api.datastore.Entity" %>
+<% Entity profile=(Entity)request.getAttribute("profile");%>
+
+
+
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -38,8 +44,8 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li><a href="sign_in_normal.jsp">Home</a></li>
-            <li><a href="profile.jsp">Profile</a></li>
+            <li><a href="/home?mail=<%=profile.getProperty("Email")%>">Home</a></li>
+            <li><a href="/profile?mail=<%=profile.getProperty("Email")%>">Profile</a></li>
             <li class="active"><a href="#">Transaction</a></li>
             
             </li>
@@ -48,8 +54,8 @@
             <li><a href="../navbar/">Settings</a></li>
                         
 			<li class="dropdown">
-              <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"><img src="images/S.jpg"  
-			  style="width:20px;height:20px;" class="img-circle" id="navbarimg"> &nbsp;User Name <b class="caret"></b></a>
+              <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"><img src="images/userPic/<%out.print(profile.getProperty("Email")); %>.jpg"
+			  style="width:20px;height:20px;" class="img-circle" id="navbarimg"> &nbsp;<%out.print(profile.getProperty("Name")); %><b class="caret"></b></a>
               <ul class="dropdown-menu" role = "menu">
                 <li><a href="#">Change Password</a></li>
                 <li><a href="#">Help</a></li>

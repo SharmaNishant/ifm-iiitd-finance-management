@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <%@page import = "java.util.*" %>
-<% String re[]= {"1","1","1","1","1","1","1","1","1"};//(String[]) request.getAttribute("profile");%>
+<%@page import = "com.google.appengine.api.datastore.Entity" %>
+<% Entity profile=(Entity)request.getAttribute("user");%>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -41,18 +42,18 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li><a href="sign_in_normal.jsp">Home</a></li>
-            <li class="active"><a href="profile.jsp">Profile</a></li>
+            <li><a href="home?mail=<%=profile.getProperty("Email")%>" >Home</a></li>
+            <li class="active"><a href="#">Profile</a></li>
             <% //String a=re[0]) %>
-            <li><a href="transaction?id=<%=re[3]%>" >Transaction</a></li>
+            <li><a href="transaction?mail=<%=profile.getProperty("Email")%>" >Transaction</a></li>
             </li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><a href="../navbar/">Settings</a></li>
                         
 			<li class="dropdown">
-              <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"><img src="images/S.jpg"  
-			  style="width:20px;height:20px;" class="img-circle" id="navbarimg"> &nbsp;<% out.print(re[0]); %><b class="caret"></b></a>
+              <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"><img src="images/userPic/<%out.print(profile.getProperty("Email")); %>.jpg"  
+			  style="width:20px;height:20px;" class="img-circle" id="navbarimg"> &nbsp;<% out.print(profile.getProperty("Name")); %><b class="caret"></b></a>
               <ul class="dropdown-menu" role = "menu">
                 <li><a href="#">Change Password</a></li>
                 <li><a href="#">Help</a></li>
@@ -94,7 +95,7 @@
 				<h1></h1>
 					
 				<h2><br></h2>
-				&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/userPic/<%out.print(re[3]); %>.jpg " name = "user_pic"height = "200" width = "200" alt="" class="img-rounded">
+				&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/userPic/<%out.print(profile.getProperty("Email")); %>.jpg" name = "user_pic"height = "200" width = "200" alt="" class="img-rounded">
 				</div>
 			</div>
 		</div>
@@ -105,9 +106,9 @@
 			<div class="span4">
 				<h1><br></h1>
 					<blockquote>
-						<h3 name = "user_name"><% out.print(re[0]); %></h3>
-							<p name = "user_no"><% out.print(re[5]); %></p>
-							<small><cite title="Source Title" name = "user_loc"><% out.print(re[7]); %> <i class="icon-map-marker"></i></cite></small>
+						<h3 name = "user_name"><% out.print(profile.getProperty("Name")); %></h3>
+							<p name = "user_no"><% out.print(profile.getProperty("Name")); %></p>
+							<small><cite title="Source Title" name = "user_mail"><% out.print(profile.getProperty("Email")); %> <i class="icon-map-marker"></i></cite></small>
 							
 					</blockquote>
 			</div>
@@ -149,37 +150,37 @@
 				<tr>
 					<td> <img src = "images/name.jpg " height = "60" width = "60"></img></td>
 					<td> <h3><b> Name  </b></h3></td>
-                    <td> <h3 name="user_name"> <% out.print(re[0]); %> </h3></td>
+                    <td> <h3 name="user_name"> <% out.print(profile.getProperty("Name")); %> </h3></td>
 				</tr>
 				
 				<tr>
 					<td> <img src = "images/mail.jpg" height = "60" width = "60"></img></td>
 					<td> <h3><b> E-mail  </b></h3></td>
-					<td> <h3 name="user_email"><% out.print(re[3]); %></h3></td>
+					<td> <h3 name="user_email"><% out.print(profile.getProperty("Email")); %></h3></td>
 				</tr>
 
 				<tr>
 					<td> <img src = "images/phone.jpg" height = "60" width = "60"></img></td>
 					<td> <h3><b> Phone  </b></h3></td>
-					<td> <h3 name="user_phn"><% out.print(re[1]); %></h3></td>
+					<td> <h3 name="user_phn"><% out.print(profile.getProperty("Phone")); %></h3></td>
 				</tr>
 				
 				<tr>
 					<td> <img src = "images/address.png" height = "60" width = "60"></img></td>
 					<td> <h3><b> Address </b></h3></td>
-					<td> <h3 name="user_addr"><% out.print(re[2]);%></h3></td>
+					<td> <h3 name="user_addr"><% out.print(profile.getProperty("Address"));%></h3></td>
 				</tr>
 				
 				<tr>
 					<td> <img src = "images/role.gif" height = "60" width = "60"></img></td>
 					<td> <h3><b> Role  </b></h3></td>
-					<td> <h3 name="user_role"><% out.print(re[4]);%></h3></td>
+					<td> <h3 name="user_role"><% out.print(profile.getProperty("Role"));%></h3></td>
 				</tr>
 				
 				<tr>
 					<td> <img src = "images/designation.jpg" height = "60" width = "60"></img></td>
 					<td> <h3><b> Designation  </b></h3></td>
-					<td> <h3 name="user_designation"><% out.print(re[8]);%></h3></td>
+					<td> <h3 name="user_designation"><% out.print(profile.getProperty("Designation"));%></h3></td>
 				</tr>
 				
 				</table>
