@@ -102,6 +102,23 @@ public class Users {
 		return null;		
 	}
 	
+	public static Entity getProfileByToken(String token) {
+		
+		Key key = KeyFactory.createKey("User Details", token);
+		try {
+			DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+			
+			Entity entity = datastore.get(key);
+			
+			return entity;
+		} catch (EntityNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return null;		
+	}
+	
 	public static String getPassword(String email) {
 		
 		Key key = KeyFactory.createKey("Account Details", email);
@@ -116,6 +133,29 @@ public class Users {
 			String password = (String)entity.getProperty("Password");
 			
 			return password;
+			
+		} catch (EntityNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return null;		
+	}
+	
+	public static String getToken(String email) {
+		
+		Key key = KeyFactory.createKey("Account Details", email);
+		
+		try {
+			DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+			
+			Entity entity = datastore.get(key);
+			
+			System.out.println(entity.getProperty("Email"));
+			
+			String token = (String)entity.getProperty("Token");
+			
+			return token;
 			
 		} catch (EntityNotFoundException e) {
 			// TODO Auto-generated catch block
