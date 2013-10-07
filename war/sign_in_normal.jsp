@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<%@page import = "java.util.*" %>
+<%@page import = "com.google.appengine.api.datastore.Entity" %>
+<% Entity profile=(Entity)request.getAttribute("profile");%>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -39,8 +42,8 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="#">Home</a></li>
-            <li><a href="profile.jsp">Profile</a></li>
-            <li><a href="transaction.jsp">Transaction</a></li>
+            <li><a href="/profile?mail=<%=profile.getProperty("Email")%>">Profile</a></li>
+            <li><a href="/transaction?mail=<%=profile.getProperty("Email")%>">Transaction</a></li>
             
             </li>
           </ul>
@@ -48,8 +51,8 @@
             <li><a href="../navbar/">Settings</a></li>
                         
 			<li class="dropdown">
-              <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"><img src="images/S.jpg"  
-			  style="width:20px;height:20px;" class="img-circle" id="navbarimg"> &nbsp;User Name <b class="caret"></b></a>
+              <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"><img src="images/userPic/<%out.print(profile.getProperty("Email")); %>.jpg"  
+			  style="width:20px;height:20px;" class="img-circle" id="navbarimg"> &nbsp;<%out.print(profile.getProperty("Name")); %><b class="caret"></b></a>
               <ul class="dropdown-menu" role = "menu">
                 <li><a href="#">Change Password</a></li>
                 <li><a href="#">Help</a></li>
@@ -77,10 +80,10 @@
 			  <table border="0">
 				
 				<tr>
-				<td><img src = "images/S.jpg"  
+				<td><img src ="images/userPic/<%out.print(profile.getProperty("Email")); %>.jpg" 
 			  style="width:60px;height:60px; name="user_pic"></td>
 				<td><h3> &nbsp;&nbsp;&nbsp;&nbsp;Name : </h3></td>
-				<td><h3 name="user_name">&nbsp;&nbsp;Mayank Garg</h3></td>
+				<td><h3 name="user_name">&nbsp;&nbsp;<%out.print(profile.getProperty("Name")); %></h3></td>
 				</tr>
 				</table>
 			   </form>
@@ -89,9 +92,9 @@
 				<table>
 				<tr>
 				<td><img src = "images/mail.jpg"  
-			  style="width:60px;height:60px; ></td>
-				<td><h3> &nbsp;&nbsp;&nbsp;&nbsp;E-mail : </h3></td>
-				<td><h3 name="user_email">&nbsp;&nbsp;mayank11065@iiitd.ac.in</h3></td>
+			  style="width:60px;height:60px; name="umail"></td>
+				<td><h3> &nbsp;&nbsp;&nbsp;&nbsp; E-mail : </h3></td>
+				<td><h3 name="user_email">&nbsp;&nbsp;<%out.print(profile.getProperty("Email")); %></h3></td>
 				</tr>
 				</table>
 			<hr>
@@ -100,7 +103,7 @@
 				<td><img src = "images/phone.jpg"  
 			  style="width:60px;height:60px; id="navbarimg"></td>
 				<td><h3> &nbsp;&nbsp;&nbsp;&nbsp;Phone No. : </h3></td>
-				<td><h3 name="user_phn">&nbsp;&nbsp;9717705251</h3></td>
+				<td><h3 name="user_phn">&nbsp;&nbsp;<%out.print(profile.getProperty("Phone")); %></h3></td>
 				</tr>
 				
 			  </table>
