@@ -4,11 +4,16 @@
  */
 package iFM;
 
+import iFM.Model.Users;
+
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.google.appengine.api.datastore.Entity;
 
 /**
  *
@@ -29,9 +34,11 @@ public class profile extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-      //  PrintWriter out = response.getWriter();
-        
+
+    	String mail = request.getParameter("mail");
+		Entity user = Users.getProfile(mail);
+		request.setAttribute("user", user);
+		request.getRequestDispatcher("profile.jsp").forward(request, response);       
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
