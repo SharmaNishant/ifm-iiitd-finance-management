@@ -58,6 +58,19 @@ public class Users {
 		
 	}
 	
+	/**
+	 * Adds a new user to the database
+	 * 
+	 * @param name
+	 * @param email
+	 * @param password
+	 * @param instituteid
+	 * @param phone
+	 * @param address
+	 * @param role
+	 * @param designation
+	 * @author Rishav
+	 */
 	public static void addUser(String name, String email, String password, String instituteid, String phone, String address, String role, String designation) {
 		
 		String token = generateToken(instituteid);
@@ -77,6 +90,13 @@ public class Users {
 		sendEmail(email, token);
 	}
 	
+	/**
+	 * Returns Entity of kind "User Details", containing the profile parameters for the user with the provided email
+	 * 
+	 * @param email
+	 * @return Entity if found, null otherwise
+	 * @author Rishav
+	 */
 	public static Entity getProfile(String email) {
 		
 		Key key = KeyFactory.createKey("Account Details", email);
@@ -102,6 +122,13 @@ public class Users {
 		return null;		
 	}
 	
+	/**
+	 * Returns Entity of kind "User Details", containing the profile parameters for the user with the provided token
+	 * 
+	 * @param token
+	 * @return Entity if found, null otherwise
+	 * @author Rishav
+	 */
 	public static Entity getProfileByToken(String token) {
 		
 		Key key = KeyFactory.createKey("User Details", token);
@@ -119,6 +146,12 @@ public class Users {
 		return null;		
 	}
 	
+	/**
+	 * Returns the password for the user with provided email
+	 * @param email
+	 * @return password if found, null otherwise
+	 * @author Rishav
+	 */
 	public static String getPassword(String email) {
 		
 		Key key = KeyFactory.createKey("Account Details", email);
@@ -142,6 +175,12 @@ public class Users {
 		return null;		
 	}
 	
+	/**
+	 * Returns the system-generated token for the user with provided email
+	 * @param email
+	 * @return token if found, null otherwise
+	 * @author Rishav
+	 */
 	public static String getToken(String email) {
 		
 		Key key = KeyFactory.createKey("Account Details", email);
@@ -163,5 +202,93 @@ public class Users {
 		}
 		
 		return null;		
+	}
+
+	/**
+	 * Returns whether the provided email is verified or not
+	 * 
+	 * @param email
+	 * @return true if verified, false otherwise
+	 * @author Rishav
+	 */
+	public static boolean getVerified(String email) {
+		Key key = KeyFactory.createKey("Account Details", email);
+		
+		try {
+			DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+			
+			Entity entity = datastore.get(key);
+			
+			System.out.println(entity.getProperty("Verified"));
+			
+			boolean verified = (boolean)entity.getProperty("Verified");
+			
+			return verified;
+			
+		} catch (EntityNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return false;
+	}
+
+	/**
+	 * Sets the email account as Verified
+	 * 
+	 * @param email
+	 * @return true if successful, false otherwise
+	 * @author Rishav
+	 */
+	public static boolean setVerified(String email) {
+		
+		Key key = KeyFactory.createKey("Account Details", email);
+		
+		try {
+			DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+			
+			Entity entity = datastore.get(key);
+			
+			System.out.println(entity.getProperty("Verified"));
+			
+			entity.setProperty("Verified", true);
+			
+			datastore.put(entity);
+			
+			return true;
+			
+		} catch (EntityNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return false;
+	}
+
+	/**
+	 * Checks if the provided email already exists in the database
+	 * 
+	 * @param email
+	 * @return true if exists, false otherwise
+	 * @author Rishav
+	 */
+	public static boolean checkExistingUser(String email) {
+		Key key = KeyFactory.createKey("Account Details", email);
+		
+		try {
+			DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+			
+			Entity entity = datastore.get(key);
+
+			System.out.println(entity);
+			
+			return true;
+			
+		} catch (EntityNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return false;
 	}
 }
