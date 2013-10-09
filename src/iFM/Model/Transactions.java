@@ -12,7 +12,7 @@ import com.google.appengine.api.datastore.Entity;
  *
  */
 public class Transactions {
-	private static int TXN_ID = 0;
+	private static int TXN_ID = 1;
 	
 	/**
 	 * Adds a new transaction to the database
@@ -35,5 +35,6 @@ public class Transactions {
 		DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
 		datastore.put(transactionEntity);
 		
+		TXN_ID++;
 	}
 }
