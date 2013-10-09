@@ -102,4 +102,41 @@ public class Transactions {
 		else
 			return null;
 	}
+
+	/**
+	 * Returns arraylist of entity containing info about the transactions of a particular user
+	 * @param email
+	 * @return null, if no transactions
+	 */
+	public static ArrayList<Entity> getAllTransactions(String email) {
+		
+		String toSearch = Users.getToken(email);
+		
+		System.out.println("Searching for Transactions related to : " + toSearch);
+				
+		Query q = new Query(transactionDetailsKind);
+		
+		Filter paidByFilter = new FilterPredicate("Paid_By", Query.FilterOperator.EQUAL, toSearch);
+		Filter recievedByFilter = new FilterPredicate("Received_By", Query.FilterOperator.EQUAL, toSearch);
+		
+		Filter filter = CompositeFilterOperator.or(paidByFilter, recievedByFilter);
+		
+		//q.setFilter(recievedByFilter);
+		q.setFilter(filter);
+		q.addSort("Date", Query.SortDirection.DESCENDING);
+		
+		DatastoreService ds = DatastoreServiceFactory.getDatastoreService();			
+		PreparedQuery pq = ds.prepare(q);
+		
+		ArrayList<Entity> ret = new ArrayList<>();
+		
+		for( Entity result : pq.asIterable() ) {
+			ret.add(result);
+		}
+				
+		if( ret.size()>0 )
+			return ret;
+		else
+			return null;
+	}
 }
