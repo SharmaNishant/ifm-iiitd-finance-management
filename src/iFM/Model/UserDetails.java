@@ -15,7 +15,7 @@ public class UserDetails {
 	
 	public UserDetails(String token, String name, String email, String instituteid, String phone, String address, String role, String designation) {
 		
-		this.User = new Entity("User Details", token);
+		this.User = new Entity(Users.userDetailsKind, token);
 				
 		this.User.setProperty("Name", name);
 		this.User.setProperty("Email", email);

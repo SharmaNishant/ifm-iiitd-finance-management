@@ -12,6 +12,7 @@ import com.google.appengine.api.datastore.Entity;
  *
  */
 public class Transactions {
+	public static String transactionDetailsKind = "Transaction_Details";
 	private static int TXN_ID = 1;
 	
 	/**
@@ -36,5 +37,9 @@ public class Transactions {
 		datastore.put(transactionEntity);
 		
 		TXN_ID++;
+	}
+	
+	public static void getLatest5Transactions(String email) {
+		
 	}
 }

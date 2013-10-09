@@ -26,6 +26,9 @@ import com.google.appengine.api.datastore.KeyFactory;
  *
  */
 public class Users {
+	public static String accountDetailsKind = "Account_Details";
+	public static String userDetailsKind = "User_Details";
+	
 	private static String generateToken(String roll) {
 		Date now = new Date();
 		return now.getTime() + roll;
@@ -99,7 +102,7 @@ public class Users {
 	 */
 	public static Entity getProfile(String email) {
 		
-		Key key = KeyFactory.createKey("Account Details", email);
+		Key key = KeyFactory.createKey(accountDetailsKind, email);
 		try {
 			DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
 			
@@ -109,7 +112,7 @@ public class Users {
 			
 			String token = (String)entity.getProperty("Token");
 			
-			key = KeyFactory.createKey("User Details", token);
+			key = KeyFactory.createKey(userDetailsKind, token);
 			
 			Entity userDetails = datastore.get(key);
 			
@@ -131,7 +134,7 @@ public class Users {
 	 */
 	public static Entity getProfileByToken(String token) {
 		
-		Key key = KeyFactory.createKey("User Details", token);
+		Key key = KeyFactory.createKey(userDetailsKind, token);
 		try {
 			DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
 			
@@ -154,7 +157,7 @@ public class Users {
 	 */
 	public static String getPassword(String email) {
 		
-		Key key = KeyFactory.createKey("Account Details", email);
+		Key key = KeyFactory.createKey(accountDetailsKind, email);
 		
 		try {
 			DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
@@ -183,7 +186,7 @@ public class Users {
 	 */
 	public static String getToken(String email) {
 		
-		Key key = KeyFactory.createKey("Account Details", email);
+		Key key = KeyFactory.createKey(accountDetailsKind, email);
 		
 		try {
 			DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
@@ -212,7 +215,7 @@ public class Users {
 	 * @author Rishav
 	 */
 	public static boolean getVerified(String email) {
-		Key key = KeyFactory.createKey("Account Details", email);
+		Key key = KeyFactory.createKey(accountDetailsKind, email);
 		
 		try {
 			DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
@@ -242,7 +245,7 @@ public class Users {
 	 */
 	public static boolean setVerified(String email) {
 		
-		Key key = KeyFactory.createKey("Account Details", email);
+		Key key = KeyFactory.createKey(accountDetailsKind, email);
 		
 		try {
 			DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
@@ -273,7 +276,7 @@ public class Users {
 	 * @author Rishav
 	 */
 	public static boolean checkExistingUser(String email) {
-		Key key = KeyFactory.createKey("Account Details", email);
+		Key key = KeyFactory.createKey(accountDetailsKind, email);
 		
 		try {
 			DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
