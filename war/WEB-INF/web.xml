@@ -42,6 +42,15 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	</servlet-mapping>
 
 	<servlet>
+		<servlet-name>NewUser</servlet-name>
+		<servlet-class>iFM.NewUser</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>NewUser</servlet-name>
+		<url-pattern>/NewUser</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
 		<servlet-name>profile</servlet-name>
 		<servlet-class>iFM.profile</servlet-class>
 	</servlet>
@@ -59,7 +68,17 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 		<url-pattern>/home</url-pattern>
 	</servlet-mapping>
 	
-	
+	<servlet>
+		<servlet-name>signup</servlet-name>
+		<servlet-class>iFM.Signup</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>signup</servlet-name>
+		<url-pattern>/signup</url-pattern>
+	</servlet-mapping>
+
+
+
 	
 	
 	
