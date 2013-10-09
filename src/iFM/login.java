@@ -17,7 +17,7 @@ import com.google.appengine.api.datastore.Entity;
 
 /**
  *
- * @author Greg Bakos <greg@londonfreelancers.co.uk>
+ * @author Nishant Sharma
  */
 @SuppressWarnings("serial")
 public class login extends HttpServlet {
@@ -44,13 +44,15 @@ public class login extends HttpServlet {
     				request.getRequestDispatcher("index.html").forward(request, response);
     			}
     			String u_pass = Users.getPassword(mail);
-    			//System.out.println(user.getProperty("Name"));
     			if(u_pass.equals(pass))
     			{
     				request.setAttribute("user", user);
     				//Entity profile = Users
     				//request.setAttribute("profile", profile);
-    				request.getRequestDispatcher("profile.jsp").forward(request, response);
+    				if(Users.getVerified(mail))
+    					request.getRequestDispatcher("profile.jsp").forward(request, response);
+    				else
+    					request.getRequestDispatcher("index.html").forward(request, response);
     			}
     			else
     			{

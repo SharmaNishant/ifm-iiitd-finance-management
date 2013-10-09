@@ -107,7 +107,7 @@
 				<h1><br></h1>
 					<blockquote>
 						<h3 name = "user_name"><% out.print(profile.getProperty("Name")); %></h3>
-							<p name = "user_no"><% out.print(profile.getProperty("Name")); %></p>
+							<p name = "user_no"><% out.print(profile.getProperty("Institute_ID")); %></p>
 							<small><cite title="Source Title" name = "user_mail"><% out.print(profile.getProperty("Email")); %> <i class="icon-map-marker"></i></cite></small>
 							
 					</blockquote>
