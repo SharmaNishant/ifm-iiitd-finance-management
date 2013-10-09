@@ -1,7 +1,4 @@
 <!DOCTYPE html>
-<%@page import = "java.util.*" %>
-<%@page import = "com.google.appengine.api.datastore.Entity" %>
-<% Entity profile=(Entity)request.getAttribute("user");%>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -20,8 +17,8 @@
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-      <script src="assets/js/html5shiv.js"></script>
-      <script src="assets/js/respond.min.js"></script>
+      <script src="../../assets/js/html5shiv.js"></script>
+      <script src="../../assets/js/respond.min.js"></script>
     <![endif]-->
   </head>
 
@@ -38,27 +35,28 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a style="color:white; ">IIIT-D Finance Management</a>
+          
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li><a href="home?mail=<%=profile.getProperty("Email")%>" >Home</a></li>
-            <li class="active"><a href="#">Profile</a></li>
-            <% //String a=re[0]) %>
-            <li><a href="transaction?mail=<%=profile.getProperty("Email")%>" >Transaction</a></li>
+		  <li><a style="color:white; ">IIIT-D Finance Management</a></li>
+            <li><a href="#">Home</a></li>
+            <li class="active"><a href="#profile">Profile</a></li>
+            <li><a href="#transaction">Transaction</a></li>
+            
             </li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><a href="../navbar/">Settings</a></li>
                         
 			<li class="dropdown">
-              <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"><img src="images/userPic/<%out.print(profile.getProperty("Email")); %>.jpg"  
-			  style="width:20px;height:20px;" class="img-circle" id="navbarimg"> &nbsp;<% out.print(profile.getProperty("Name")); %><b class="caret"></b></a>
+              <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"><img src="images/S.jpg"  
+			  style="width:20px;height:20px;" class="img-circle" id="navbarimg"> &nbsp;User Name <b class="caret"></b></a>
               <ul class="dropdown-menu" role = "menu">
                 <li><a href="#">Change Password</a></li>
                 <li><a href="#">Help</a></li>
 				<li><a href="#">FeedBack</a></li>
-                <li><a href="index.html">Logout</a></li>
+                <li><a href="#">Logout</a></li>
                 </ul>
           </ul>
         </div><!--/.nav-collapse -->
@@ -82,57 +80,6 @@
 </div>
 
 
-<div class="container">
-
-        <div class="col-sm-1">
-		</div>
-		
-		<form>
-		<div class="col-sm-3">
-			
-			<div class="row">
-				<div class="span2">
-				<h1></h1>
-					
-				<h2><br></h2>
-				&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/userPic/<%out.print(profile.getProperty("Email")); %>.jpg" name = "user_pic"height = "200" width = "200" alt="" class="img-rounded">
-				</div>
-			</div>
-		</div>
-		</form>
-		
-		<form>
-		<div class="col-sm-4">
-			<div class="span4">
-				<h1><br></h1>
-					<blockquote>
-						<h3 name = "user_name"><% out.print(profile.getProperty("Name")); %></h3>
-							<p name = "user_no"><% out.print(profile.getProperty("Institute_ID")); %></p>
-							<small><cite title="Source Title" name = "user_mail"><% out.print(profile.getProperty("Email")); %> <i class="icon-map-marker"></i></cite></small>
-							
-					</blockquote>
-			</div>
-		</div>
-		</form>
-		
-		<div class="col-sm-1">
-		</div>
-		
-		<form>
-		<div class="col-sm-3">
-			<div class="well sidebar-nav">
-				<ul class="nav">
-					<li>Notifications</li>
-					<li class="active" name="list1"><a href="#">Link</a></li>
-					<li name="list1"><a href="#">Link</a></li>
-					<li name="list2"><a href="#">Link</a></li>
-					<li name="list3"><a href="#">Link</a></li>
-					<li name="list4"><a href="#">See More</a></li>
-			</div>
-		</div>
-		</form>
-		</div>
-		<hr>
 		<div class="container">	
 		
 		
@@ -141,7 +88,7 @@
 			
 			<div class="col-sm-7">
 			
-                <form action="/profile" method="POST">
+			<form>
 				<table border="0" CELLSPACING="6" CELLPADDING="7">
 				  <col width="120">
 				  <col width="250">
@@ -150,41 +97,76 @@
 				<tr>
 					<td> <img src = "images/name.jpg " height = "60" width = "60"></img></td>
 					<td> <h3><b> Name  </b></h3></td>
-                    <td> <h3 name="user_name"> <% out.print(profile.getProperty("Name")); %> </h3></td>
+					<td> 
+						<div class="form-group">
+							<input type="text" placeholder="Name" class="form-control">
+						</div>
+					</td>
 				</tr>
 				
 				<tr>
 					<td> <img src = "images/mail.jpg" height = "60" width = "60"></img></td>
 					<td> <h3><b> E-mail  </b></h3></td>
-					<td> <h3 name="user_email"><% out.print(profile.getProperty("Email")); %></h3></td>
+					<td> 
+						<div class="form-group">
+							<input type="text" placeholder="Name" class="form-control">
+						</div>
+					</td>
 				</tr>
 
 				<tr>
 					<td> <img src = "images/phone.jpg" height = "60" width = "60"></img></td>
 					<td> <h3><b> Phone  </b></h3></td>
-					<td> <h3 name="user_phn"><% out.print(profile.getProperty("Phone")); %></h3></td>
+					<td> 
+						<div class="form-group">
+							<input type="text" placeholder="Phone Number" class="form-control">
+						</div>
+					</td>
 				</tr>
 				
 				<tr>
 					<td> <img src = "images/address.png" height = "60" width = "60"></img></td>
 					<td> <h3><b> Address </b></h3></td>
-					<td> <h3 name="user_addr"><% out.print(profile.getProperty("Address"));%></h3></td>
+					<td> 
+						<div class="form-group">
+							<br>
+							<input type="text" placeholder="Address Line 1" class="form-control"><br>
+							<input type="text" placeholder="Address Line 2" class="form-control">
+						</div>
+					
+					</td>
 				</tr>
 				
 				<tr>
 					<td> <img src = "images/role.gif" height = "60" width = "60"></img></td>
 					<td> <h3><b> Role  </b></h3></td>
-					<td> <h3 name="user_role"><% out.print(profile.getProperty("Role"));%></h3></td>
+					<td> 
+						<div class="form-group">
+							<input type="text" placeholder="Student/Faculty/Staff" class="form-control">
+						</div>
+					</td>
 				</tr>
 				
 				<tr>
 					<td> <img src = "images/designation.jpg" height = "60" width = "60"></img></td>
 					<td> <h3><b> Designation  </b></h3></td>
-					<td> <h3 name="user_designation"><% out.print(profile.getProperty("Designation"));%></h3></td>
+					<td> 
+						<div class="form-group">
+							<input type="text" placeholder="Degree/Department/Designation" class="form-control">
+						</div>
+					</td>
 				</tr>
 				
 				</table>
-			</form>	
+			</form>		
+				
+				<form align = "center">
+					<br><br>
+					<button type="button" class="btn btn-lg btn-success" name="save_profile">Save Profile</button>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<button type="button" class="btn btn-lg btn-danger" name="cancel_profile">Cancel</button>
+				</form>
+			
 			</div>
 				
 			<div class="col-sm-1">
@@ -193,27 +175,21 @@
 			
 			<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
 			
-			<form>		
-			  <div class="well sidebar-nav">
-				<ul class="nav">
-					  <li>Groups</li>
-					  <li><a href="#">Join a Group</a></li>
-					  <li><a href="#">Create a Group</a></li>
-					  <li name="list1"><a href="#">Group 1</a></li>
-					  <li name="list2"><><a href="#">Group 2</a></li>
-					  <li name="list3"><><a href="#">See More</a></li>
-					  </ul>
-			</div>
+			<form>
+			
+					<img src = "images/develop_1.jpg" height = "250" width = "250" name = "user_pic" class="img-rounded"></img>
 			</form>
 			
 			<br>
 			
-			<form>
-				  <button type="button" class="btn btn-lg btn-info" name="query">Send a Query</button> 
+			<form align = "center">
+				  <br>
+				  <button type="button" class="btn btn-lg btn-info" name="query">Update Photo</button> 
 				  <br><br><br>
-				  <button type="button" class="btn btn-lg btn-danger" name="feedback">FEEDBACK</button>
-			</div>
 			</form>
+				  
+			</div>
+			
 		  
 		</div><!--/span-->
 		<hr>
@@ -229,7 +205,7 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="assets/js/jquery.js"></script>
+    <script src="../assets/js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
   </body>
 </html>
