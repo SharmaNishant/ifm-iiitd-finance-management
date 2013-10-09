@@ -40,7 +40,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">IFM</a>
+           <a style="color:white; ">IIIT-D Finance Management</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
