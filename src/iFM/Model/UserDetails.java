@@ -19,7 +19,7 @@ public class UserDetails {
 				
 		this.User.setProperty("Name", name);
 		this.User.setProperty("Email", email);
-		this.User.setProperty("Institute ID", instituteid);	
+		this.User.setProperty("Institute_ID", instituteid);	
 		this.User.setProperty("Phone", phone);
 		this.User.setProperty("Address", address);
 		this.User.setProperty("Role", role);
