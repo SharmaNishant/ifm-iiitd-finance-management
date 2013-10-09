@@ -35,7 +35,7 @@ public class Users {
 		String messageBody =
 				"Welcome to iFM, Your account has been created.\n\n" +
 				"You can confirm your account by clicking on the following link -\n" +
-				"http://iiitdfm.appspot.com/NewUser.jsp?uid=" + token + "\n\n" +
+				"http://iiitdfm.appspot.com/NewUser?uid=" + token + "\n\n" +
 				"The iFM Team\n";
 		
 		Properties props = new Properties(); 
