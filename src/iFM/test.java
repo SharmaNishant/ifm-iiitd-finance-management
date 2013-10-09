@@ -34,6 +34,13 @@ public class test extends HttpServlet {
         String saurabhToken = Users.getToken("saurabh11100@iiitd.ac.in");
         String adminToken = Users.getToken("admin@iiitdfm.appspotmail.com");
         
+        System.out.println(rishavToken);
+        System.out.println(nishantToken);
+        System.out.println(mayankToken);
+        System.out.println(priyamToken);
+        System.out.println(saurabhToken);
+        System.out.println(adminToken);
+        
         // Sample Transactions by PRIYAM 
         Transactions.addTransaction(rishavToken,adminToken,"50000","10/9/2013","Fees");
         Transactions.addTransaction(mayankToken,adminToken,"10000","9/9/2013","Fees");
