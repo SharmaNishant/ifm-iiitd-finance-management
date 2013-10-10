@@ -183,6 +183,11 @@
 					<td> <h3 name="user_designation"><% out.print(profile.getProperty("Designation"));%></h3></td>
 				</tr>
 				
+				<tr>
+					<td><br>
+						<button type="button" class="btn btn-lg btn-info" name="change_profile">Change Profile</button>
+					</td>
+				</tr>
 				</table>
 			</form>	
 			</div>
