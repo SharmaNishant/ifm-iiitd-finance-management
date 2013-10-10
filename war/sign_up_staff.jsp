@@ -22,7 +22,7 @@
     <![endif]-->
   </head>
 
-  <body background="../images/back.jpg">
+  <body background="images/back.jpg">
 
     <div class="container">
       <div class="header">
@@ -34,11 +34,17 @@
         <h3 class="text-muted">IIIT-D Finance Management</h3>
       </div>
 
-      <form class="form-horizontal" action='' method="POST">
+      <form class="form-horizontal" action="signup_final" method="POST">
   <fieldset>
     <div id="legend">
       <legend class="">Sign up</legend>
     </div>
+    <%String[] a=(String[] )request.getAttribute("signup_info"); %>
+    <input type="hidden"  name="name" value="<% out.println(a[0]); %>" />
+    <input type="hidden"  name="mail" value="<% out.println(a[1]); %>" />
+    <input type="hidden"  name="phone" value="<% out.println(a[2]); %>" />
+    <input type="hidden"  name="add" value="<% out.println(a[3]); %>" />
+    <input type="hidden"  name="role" value="<% out.println(a[4]); %>" />
     <div class="control-group">
       <!-- emp ID -->
       <label class="control-label" for="empid">Employee ID</label>
