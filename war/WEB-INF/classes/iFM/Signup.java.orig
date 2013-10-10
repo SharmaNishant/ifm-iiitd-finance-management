@@ -5,6 +5,7 @@
 package iFM;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -13,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Nishant Sharma
+ * @author Greg Bakos <greg@londonfreelancers.co.uk>
  */
 @SuppressWarnings("serial")
 public class Signup extends HttpServlet {
@@ -30,6 +31,7 @@ public class Signup extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+<<<<<<< local
 
     	String fname=request.getParameter("firstname");
     	String lname=request.getParameter("lastname");
@@ -90,6 +92,24 @@ public class Signup extends HttpServlet {
     	
     	
     	
+=======
+        response.setContentType("text/html;charset=UTF-8");
+        PrintWriter out = response.getWriter();
+        try {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet singup</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet singup at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
+        } finally {            
+            out.close();
+        }
+>>>>>>> other
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
