@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author Nishant Sharma
  */
 @SuppressWarnings("serial")
-public class Signup extends HttpServlet {
+public class signup extends HttpServlet {
 
     /**
      * Processes requests for both HTTP
@@ -47,19 +47,25 @@ public class Signup extends HttpServlet {
     	{
     		String name=fname+" "+lname;
     		String add=add1+", "+add2+", "+city+", "+state+", "+coun+", "+zip;
-    		String[] signup_info = {name,mail,phone,add,role};
+    		//ArrayList<String>signup_info = new ArrayList<String>();
+    		String[] signup_info ={name,mail,phone,add,role};
+    		/*signup_info.add(name);
+    		signup_info.add(mail);
+    		signup_info.add(phone);
+    		signup_info.add(add);
+    		signup_info.add(role); */
     		request.setAttribute("signup_info", signup_info);
     		if(role.equals("STU"))
     		{
-    			request.getRequestDispatcher("sign_up_stu.html").forward(request, response);
+    			request.getRequestDispatcher("sign_up_stu.jsp").forward(request, response);
     		}
     		else if(role.equals("FAC"))
     		{
-    			request.getRequestDispatcher("sign_up_fac.html").forward(request, response);
+    			request.getRequestDispatcher("sign_up_fac.jsp").forward(request, response);
     		}
     		else if(role.equals("STA"))
     		{
-    			request.getRequestDispatcher("sign_up_staff.html").forward(request, response);
+    			request.getRequestDispatcher("sign_up_staff.jsp").forward(request, response);
     		}
     		else
     		{
@@ -70,9 +76,6 @@ public class Signup extends HttpServlet {
     	{
     		request.getRequestDispatcher("sign_up.html").forward(request, response);
     	}
-    	
-    	
-    	
     	
     	
     	
