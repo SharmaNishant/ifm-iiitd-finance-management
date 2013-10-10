@@ -5,6 +5,7 @@
 package iFM;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -13,10 +14,10 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Nishant Sharma
+ * @author Greg Bakos <greg@londonfreelancers.co.uk>
  */
 @SuppressWarnings("serial")
-public class signup extends HttpServlet {
+public class Signup extends HttpServlet {
 
     /**
      * Processes requests for both HTTP
@@ -30,69 +31,22 @@ public class signup extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-    	String fname=request.getParameter("firstname");
-    	String lname=request.getParameter("lastname");
-    	String mail=request.getParameter("email");
-    	String phone=request.getParameter("phone");
-    	String add1=request.getParameter("address1");
-    	String add2=request.getParameter("address2");
-    	String city=request.getParameter("city");
-    	String state=request.getParameter("state");
-    	String coun=request.getParameter("country");
-    	String zip=request.getParameter("zip");	
-    	String role=request.getParameter("role");
-    	
-    	if(!(fname.isEmpty() || lname.isEmpty() || mail.isEmpty() || phone.isEmpty() || add1.isEmpty() || city.isEmpty() || state.isEmpty() || coun.isEmpty() || zip.isEmpty() || role.isEmpty()))
-    	{
-    		String name=fname+" "+lname;
-    		String add=add1+", "+add2+", "+city+", "+state+", "+coun+", "+zip;
-    		//ArrayList<String>signup_info = new ArrayList<String>();
-    		String[] signup_info ={name,mail,phone,add,role};
-    		/*signup_info.add(name);
-    		signup_info.add(mail);
-    		signup_info.add(phone);
-    		signup_info.add(add);
-    		signup_info.add(role); */
-    		request.setAttribute("signup_info", signup_info);
-    		if(role.equals("STU"))
-    		{
-    			request.getRequestDispatcher("sign_up_stu.jsp").forward(request, response);
-    		}
-    		else if(role.equals("FAC"))
-    		{
-    			request.getRequestDispatcher("sign_up_fac.jsp").forward(request, response);
-    		}
-    		else if(role.equals("STA"))
-    		{
-    			request.getRequestDispatcher("sign_up_staff.jsp").forward(request, response);
-    		}
-    		else
-    		{
-    			request.getRequestDispatcher("sign_up.html").forward(request, response);
-    		}
-    	}
-    	else
-    	{
-    		request.getRequestDispatcher("sign_up.html").forward(request, response);
-    	}
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
+        response.setContentType("text/html;charset=UTF-8");
+        PrintWriter out = response.getWriter();
+        try {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet singup</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet singup at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
+        } finally {            
+            out.close();
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
