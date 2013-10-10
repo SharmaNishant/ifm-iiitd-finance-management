@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="shortcut icon" href="../../assets/ico/favicon.png">
+    <link rel="shortcut icon" href="assets/ico/favicon.png">
 
     <title>Sign Up</title>
 
@@ -22,19 +22,18 @@
     <![endif]-->
   </head>
 
-  <body background="../images/back.jpg">
+  <body background="images/back.jpg">
 
     <div class="container">
       <div class="header">
         <ul class="nav nav-pills pull-right">
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
         </ul>
         <h3 class="text-muted">IIIT-D Finance Management</h3>
       </div>
 
-      <form class="form-horizontal" action='' method="POST">
+      <form class="form-horizontal" action="signup_final" method="POST">
   <fieldset>
     <div id="legend">
       <legend class="">Sign up</legend>
@@ -47,7 +46,12 @@
         <p class="help-block">Please provide your Roll number</p>
       </div>
     </div>
-
+    <%String[] a=(String[] )request.getAttribute("signup_info"); %>
+    <input type="hidden"  name="name" value="<% out.println(a[0]); %>" />
+    <input type="hidden"  name="mail" value="<% out.println(a[1]); %>" />
+    <input type="hidden"  name="phone" value="<% out.println(a[2]); %>" />
+    <input type="hidden"  name="add" value="<% out.println(a[3]); %>" />
+    <input type="hidden"  name="role" value="<% out.println(a[4]); %>" />
 	<div class="control-group">
       <!-- stream -->
       <label class="control-label" for="stream">Stream</label>
@@ -79,7 +83,7 @@
     <div class="control-group">
       <!-- Button -->
       <div class="controls">
-	  <label><input type="checkbox" name="terms"> I agree with the <a href="#">Terms and Conditions</a>.</label><br>
+	  <label><input type="checkbox" name="terms" value="1"> I agree with the <a href="#">Terms and Conditions</a>.</label><br>
         <button class="btn btn-success" name = "confirm">Confirm</button>
 		<button class="btn btn-danger" name = "cancel">Cancel</button>
       </div>

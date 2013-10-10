@@ -60,7 +60,6 @@ public class login extends HttpServlet {
     			}
     		}
     		else {
-    			System.out.println("User Not Found");
     			request.getRequestDispatcher("index.html").forward(request, response);
     		}
     }
