@@ -124,12 +124,22 @@ ArrayList<String> notify = (ArrayList<String>) request.getAttribute("notify");
 		<div class="col-sm-3">
 			<div class="well sidebar-nav">
 				<ul class="nav">
-					<li>Notifications</li>
-					<li class="active" name="list1"><a href="#">Link</a></li>
-					<li name="list1"><a href="#">Link</a></li>
-					<li name="list2"><a href="#">Link</a></li>
-					<li name="list3"><a href="#">Link</a></li>
-					<li name="list4"><a href="#">See More</a></li>
+					<li><h3>Notifications</h3></li>
+					<%if(notify.isEmpty())
+					{
+						//<li name="list2">Link</li>;
+						out.println("<li name=\"temp\" >Nothing New Here</li>"); 
+					}
+					else
+					{
+						for(int i=0;i<notify.size();i++)
+						{
+							String t = notify.get(i);
+							out.println("<li name=\""+i+"\">"+t+"</li>");
+						}
+					}
+						%>
+					
 			</div>
 		</div>
 		</form>

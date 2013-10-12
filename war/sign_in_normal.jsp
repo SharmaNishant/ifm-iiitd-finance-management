@@ -174,11 +174,20 @@
             <a href="#" class="list-group-item active">
               NOTIFICATIONS
             </a>
-            <a href="#" class="list-group-item" name ="list1">LIST</a>
-            <a href="#" class="list-group-item" name ="list2">LIST</a>
-            <a href="#" class="list-group-item" name ="list3">LIST</a>
-			<a href="#" class="list-group-item" name ="list4">LIST</a>
-            <a href="#" class="list-group-item" name ="list5">See More</a>
+					<%if(notify.isEmpty())
+					{
+						//<li name="list2">Link</li>;
+						out.println("<li name=\"temp\" >Nothing New Here</li>"); 
+					}
+					else
+					{
+						for(int i=0;i<notify.size();i++)
+						{
+							String t = notify.get(i);
+							out.println("<li name=\""+i+"\">"+t+"</li>");
+						}
+					}
+						%>
           </div>
 		  </form>
 		

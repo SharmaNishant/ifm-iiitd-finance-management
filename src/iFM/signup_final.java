@@ -20,7 +20,8 @@ public class signup_final extends HttpServlet {
 		String phone=request.getParameter("phone");
 		String add=request.getParameter("add");
 		String role=request.getParameter("role");
-			
+			String terms = request.getParameter("terms");
+			System.out.println(terms);
 		String[] old_data ={name,mail,phone,add,role};
 		old_data[1]=old_data[1].split("@iiitd.ac.in")[0];
 		old_data[1]=old_data[1]+"@iiitd.ac.in";
@@ -32,7 +33,7 @@ public class signup_final extends HttpServlet {
 			String pass_con=request.getParameter("password_confirm");
 			if(!(roll_no.isEmpty() || stream.isEmpty() || password.isEmpty() || pass_con.isEmpty()))
 			{
-				if(password.equals(pass_con) && password.length()>3 )
+				if(password.equals(pass_con) && password.length()>3 && "1".equals(terms))
 				{
 					//clean all the fields below here
 					Users.addUser(old_data[0], old_data[1], password, roll_no, old_data[2], old_data[3], old_data[4], "Student");

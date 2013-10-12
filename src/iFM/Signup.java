@@ -4,12 +4,17 @@
  */
 package iFM;
 
+import iFM.Model.Users;
+
 import java.io.IOException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.google.appengine.api.datastore.Entity;
+
 
 /**
  *
@@ -42,8 +47,9 @@ public class Signup extends HttpServlet {
     	String coun=request.getParameter("country");
     	String zip=request.getParameter("zip");	
     	String role=request.getParameter("role");
-    	
-    	if(!(fname.isEmpty() || lname.isEmpty() || mail.isEmpty() || phone.isEmpty() || add1.isEmpty() || city.isEmpty() || state.isEmpty() || coun.isEmpty() || zip.isEmpty() || role.isEmpty()))
+    	Entity user = Users.getProfile(mail);
+//    	if()
+    	if( !(fname.isEmpty() || lname.isEmpty() || mail.isEmpty() || phone.isEmpty() || add1.isEmpty() || city.isEmpty() || state.isEmpty() || coun.isEmpty() || zip.isEmpty() || role.isEmpty()))
     	{
     		String name=fname+" "+lname;
     		String add=add1+", "+add2+", "+city+", "+state+", "+coun+", "+zip;
