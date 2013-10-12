@@ -1,14 +1,14 @@
-<!-- Indices written at Sat, 12 Oct 2013 13:34:12 IST -->
+<!-- Indices written at Sat, 12 Oct 2013 14:35:05 IST -->
 
 <datastore-indexes>
 
-    <!-- Used 1 time in query history -->
+    <!-- Used 3 times in query history -->
     <datastore-index kind="Transaction_Details" ancestor="false" source="auto">
         <property name="Received_By" direction="asc"/>
         <property name="Date" direction="desc"/>
     </datastore-index>
 
-    <!-- Used 1 time in query history -->
+    <!-- Used 3 times in query history -->
     <datastore-index kind="Transaction_Details" ancestor="false" source="auto">
         <property name="Paid_By" direction="asc"/>
         <property name="Date" direction="desc"/>
