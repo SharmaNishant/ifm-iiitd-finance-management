@@ -125,9 +125,9 @@ ArrayList<String> notify = (ArrayList<String>) request.getAttribute("notify");
 			<div class="well sidebar-nav">
 				<ul class="nav">
 					<li><h3>Notifications</h3></li>
-					<%if(notify.isEmpty())
+					<%
+					if(notify == null)
 					{
-						//<li name="list2">Link</li>;
 						out.println("<li name=\"temp\" >Nothing New Here</li>"); 
 					}
 					else
@@ -138,8 +138,8 @@ ArrayList<String> notify = (ArrayList<String>) request.getAttribute("notify");
 							out.println("<li name=\""+i+"\">"+t+"</li>");
 						}
 					}
-						%>
-					
+					%>
+
 			</div>
 		</div>
 		</form>

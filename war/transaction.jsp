@@ -112,7 +112,7 @@
 					<th> Description</th>
 				</tr>
 				
-			<%if(trans.size()<1) 
+			<%if(trans == null) 
 			out.print("<tr>  <td colspan=\"6\" align=\"center\"><h3>No Transactions For You!</h3></td></tr>");
 			else
 			{
@@ -145,7 +145,7 @@
 			<div class="well sidebar-nav">
 				<ul class="nav">
 					<li><h3>Notifications</h3></li>
-					<%if(notify.isEmpty())
+					<%if(notify == null)
 					{
 						//<li name="list2">Link</li>;
 						out.println("<li name=\"temp\" >Nothing New Here</li>"); 
