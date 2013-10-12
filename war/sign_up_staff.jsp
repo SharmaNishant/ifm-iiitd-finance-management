@@ -85,7 +85,7 @@
     <div class="control-group">
       <!-- Button -->
       <div class="controls">
-	  <label><input type="checkbox" name="terms"> I agree with the <a href="#">Terms and Conditions</a>.</label><br>
+	  <label><input type="checkbox" name="terms" value="1"> I agree with the <a href="#">Terms and Conditions</a>.</label><br>
         <button class="btn btn-success" name = "confirm">Confirm</button>
 		<button class="btn btn-danger" name = "cancel">Cancel</button>
       </div>
