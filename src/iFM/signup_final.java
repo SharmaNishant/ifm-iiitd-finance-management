@@ -21,7 +21,6 @@ public class signup_final extends HttpServlet {
 		String add=request.getParameter("add");
 		String role=request.getParameter("role");
 			String terms = request.getParameter("terms");
-			System.out.println(terms);
 		String[] old_data ={name,mail,phone,add,role};
 		old_data[1]=old_data[1].split("@iiitd.ac.in")[0];
 		old_data[1]=old_data[1]+"@iiitd.ac.in";

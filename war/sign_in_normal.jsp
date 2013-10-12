@@ -138,7 +138,7 @@
 					<th> Description</th>
 				</tr>
 				
-			<%if(trans.isEmpty()) 
+			<%if(trans == null) 
 			out.print("<tr>  <td colspan=\"6\" align=\"center\">No Transactions For You!</td></tr>");
 			else
 			{
@@ -174,7 +174,7 @@
             <a href="#" class="list-group-item active">
               NOTIFICATIONS
             </a>
-					<%if(notify.isEmpty())
+					<%  if(notify == null)
 					{
 						//<li name="list2">Link</li>;
 						out.println("<li name=\"temp\" >Nothing New Here</li>"); 
