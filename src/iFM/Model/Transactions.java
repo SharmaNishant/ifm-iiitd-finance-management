@@ -131,6 +131,12 @@ public class Transactions {
 		ArrayList<Entity> ret = new ArrayList<>();
 		
 		for( Entity result : pq.asIterable() ) {
+			String tmp = Users.getNameByToken((String) result.getProperty("Paid_By"));
+			result.setProperty("Paid_By", tmp);
+			
+			tmp = Users.getNameByToken((String) result.getProperty("Received_By"));
+			result.setProperty("Received_By", tmp);
+			
 			ret.add(result);
 		}
 				

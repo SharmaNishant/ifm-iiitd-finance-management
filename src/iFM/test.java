@@ -27,6 +27,13 @@ public class test extends HttpServlet {
         Users.addUser("Saurabh Arya", "saurabh11100@iiitd.ac.in", "saurabh", "BT2011100", "", "", "", "");
         Users.addUser("Admin", "admin@iiitdfm.appspotmail.com", "admin", "ADMIN", "", "", "", "");
         
+        Users.setVerified("rishav11088@iiitd.ac.in");
+        Users.setVerified("nishant11070@iiitd.ac.in");
+        Users.setVerified("mayank11065@iiitd.ac.in");
+        Users.setVerified("priyam11083@iiitd.ac.in");
+        Users.setVerified("saurabh11100@iiitd.ac.in");
+        Users.setVerified("admin@iiitdfm.appspotmail.com");
+        
         String rishavToken = Users.getToken("rishav11088@iiitd.ac.in");
         String nishantToken = Users.getToken("nishant11070@iiitd.ac.in");
         String mayankToken = Users.getToken("mayank11065@iiitd.ac.in");
