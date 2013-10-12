@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <%@page import = "java.util.*" %>
 <%@page import = "com.google.appengine.api.datastore.Entity" %>
-<% Entity profile=(Entity)request.getAttribute("user");%>
+<% Entity profile=(Entity)request.getAttribute("user");
+ArrayList<String> notify = (ArrayList<String>) request.getAttribute("notify");
+%>
 <html lang="en">
   <head>
     <meta charset="utf-8">

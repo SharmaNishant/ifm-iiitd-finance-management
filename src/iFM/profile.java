@@ -4,9 +4,11 @@
  */
 package iFM;
 
+import iFM.Model.Transactions;
 import iFM.Model.Users;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -38,6 +40,12 @@ public class profile extends HttpServlet {
     	String mail = request.getParameter("mail");
 		Entity user = Users.getProfile(mail);
 		request.setAttribute("user", user);
+		
+    	ArrayList<Entity> tran = Transactions.getAllTransactions(mail);
+    	ArrayList<String> top5 = Transactions.getLatest5Transactions(mail);
+    	request.setAttribute("all_trans", tran);
+    	request.setAttribute("notify", top5);
+		
 		request.getRequestDispatcher("profile.jsp").forward(request, response);       
     }
 

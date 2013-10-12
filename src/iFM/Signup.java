@@ -51,15 +51,15 @@ public class Signup extends HttpServlet {
     		request.setAttribute("signup_info", signup_info);
     		if(role.equals("STU"))
     		{
-    			request.getRequestDispatcher("sign_up_stu.html").forward(request, response);
+    			request.getRequestDispatcher("sign_up_stu.jsp").forward(request, response);
     		}
     		else if(role.equals("FAC"))
     		{
-    			request.getRequestDispatcher("sign_up_fac.html").forward(request, response);
+    			request.getRequestDispatcher("sign_up_fac.jsp").forward(request, response);
     		}
     		else if(role.equals("STA"))
     		{
-    			request.getRequestDispatcher("sign_up_staff.html").forward(request, response);
+    			request.getRequestDispatcher("sign_up_staff.jsp").forward(request, response);
     		}
     		else
     		{

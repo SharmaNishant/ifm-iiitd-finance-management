@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <%@page import = "java.util.*" %>
 <%@page import = "com.google.appengine.api.datastore.Entity" %>
-<% Entity profile=(Entity)request.getAttribute("profile");%>
+<% Entity profile=(Entity)request.getAttribute("profile");
+	ArrayList<Entity> trans = (ArrayList<Entity>) request.getAttribute("all_trans");
+	ArrayList<String> notify = (ArrayList<String>) request.getAttribute("notify");
+%>
 
 
 
@@ -101,133 +104,35 @@
 				<col width="250">
 			
 				<tr>
-					<th> Serial No.</th>
+					<th > Serial No.</th>
 					<th> Paid By</th>
 					<th> Recieved By</th>
 					<th> Amount</th>
 					<th> Date</th>
 					<th> Description</th>
 				</tr>
-				<tr>
-					<td>1 </td>
-					<td> </td>
-					<td> </td>
-					<td> </td>
-					<td> </td>
-					<td> </td>
-				</tr>
-				<tr>
-					<td>2 </td>
-					<td> </td>
-					<td> </td>
-					<td> </td>
-					<td> </td>
-					<td> </td>
-				</tr>
-				<tr>
-					<td>3 </td>
-					<td> </td>
-					<td> </td>
-					<td> </td>
-					<td> </td>
-					<td> </td>
-				</tr>
-				<tr>
-					<td> 4</td>
-					<td> </td>
-					<td> </td>
-					<td> </td>
-					<td> </td>
-					<td> </td>
-				</tr>
-				<tr>
-					<td>5 </td>
-					<td> </td>
-					<td> </td>
-					<td> </td>
-					<td> </td>
-					<td> </td>
-				</tr>
-				<tr>
-					<td> 6</td>
-					<td> </td>
-					<td> </td>
-					<td> </td>
-					<td> </td>
-					<td> </td>
-				</tr>
-				<tr>
-					<td>7 </td>
-					<td> </td>
-					<td> </td>
-					<td> </td>
-					<td> </td>
-					<td> </td>
-				</tr>
-				<tr>
-					<td>8 </td>
-					<td> </td>
-					<td> </td>
-					<td> </td>
-					<td> </td>
-					<td> </td>
-				</tr>
-				<tr>
-					<td> 9</td>
-					<td> </td>
-					<td> </td>
-					<td> </td>
-					<td> </td>
-					<td> </td>
-				</tr>
-				<tr>
-					<td>10 </td>
-					<td> </td>
-					<td> </td>
-					<td> </td>
-					<td> </td>
-					<td> </td>
-				</tr>
-				<tr>
-					<td>11 </td>
-					<td> </td>
-					<td> </td>
-					<td> </td>
-					<td> </td>
-					<td> </td>
-				</tr>
-				<tr>
-					<td>12 </td>
-					<td> </td>
-					<td> </td>
-					<td> </td>
-					<td> </td>
-					<td> </td>
-				</tr>
-				<tr>
-					<td> 13</td>
-					<td> </td>
-					<td> </td>
-					<td> </td>
-					<td> </td>
-					<td> </td>
-				</tr>
-				<tr>
-					<td> 14</td>
-					<td> </td>
-					<td> </td>
-					<td> </td>
-					<td> </td>
-					<td> </td>
-				</tr>
-				<tr>
-					<td>15 </td>
-					<td> </td>
-					<td> </td>
-					<td> </td>
-					<td> </td>
-					<td> </td>
-				</tr>
+				
+			<%if(trans.size()<1) 
+			out.print("<tr>  <td colspan=\"6\" align=\"center\"><h3>No Transactions For You!</h3></td></tr>");
+			else
+			{
+				for(int i=0;i<(trans.size()-1) && i<500 ;i++)
+				{
+					Entity temp = trans.get(i);
+					out.print("<tr>\n");
+					out.print("<td>"+(i+1)+"</td>\n");
+					out.print("<td>"+ temp.getProperty("Paid_By") +"</td>\n");
+					out.print("<td>"+temp.getProperty("Received_By")+" </td>\n");
+					out.print("<td>"+temp.getProperty("Amount")+" </td>\n");
+					out.print("<td>"+temp.getProperty("Date")+" </td>\n");
+					out.print("<td>"+temp.getProperty("Description")+" </td>\n");
+					out.print("</tr>\n\n\n");
+				}
+			}
+			%>
+			
+			
+			
 			</table>
 			
 			</form>
