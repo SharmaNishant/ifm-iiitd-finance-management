@@ -4,9 +4,11 @@
  */
 package iFM;
 
+import iFM.Model.Transactions;
 import iFM.Model.Users;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -17,7 +19,7 @@ import com.google.appengine.api.datastore.Entity;
 
 /**
  *
- * @author Greg Bakos <greg@londonfreelancers.co.uk>
+ * @author Nishant Sharma
  */
 @SuppressWarnings("serial")
 public class login extends HttpServlet {
@@ -31,6 +33,8 @@ public class login extends HttpServlet {
             throws ServletException, IOException {
     		
     		String mail = request.getParameter("mail");
+    		mail=mail.split("@iiitd.ac.in")[0];
+    		mail=mail+"@iiitd.ac.in";
     		if(mail.isEmpty())
     		{
 				request.getRequestDispatcher("index.html").forward(request, response);
@@ -44,13 +48,19 @@ public class login extends HttpServlet {
     				request.getRequestDispatcher("index.html").forward(request, response);
     			}
     			String u_pass = Users.getPassword(mail);
-    			//System.out.println(user.getProperty("Name"));
     			if(u_pass.equals(pass))
     			{
     				request.setAttribute("user", user);
-    				//Entity profile = Users
-    				//request.setAttribute("profile", profile);
-    				request.getRequestDispatcher("profile.jsp").forward(request, response);
+
+    		    	ArrayList<Entity> tran = Transactions.getAllTransactions(mail);
+    		    	ArrayList<String> top5 = Transactions.getLatest5Transactions(mail);
+    		    	request.setAttribute("all_trans", tran);
+    		    	request.setAttribute("notify", top5);
+    				
+    				if(Users.getVerified(mail))
+    					request.getRequestDispatcher("profile.jsp").forward(request, response);
+    				else
+    					request.getRequestDispatcher("index.html").forward(request, response);
     			}
     			else
     			{
@@ -58,7 +68,6 @@ public class login extends HttpServlet {
     			}
     		}
     		else {
-    			System.out.println("User Not Found");
     			request.getRequestDispatcher("index.html").forward(request, response);
     		}
     }

@@ -22,7 +22,7 @@
     <![endif]-->
   </head>
 
-  <body background="../images/back.jpg">
+  <body background="images/back.jpg">
 
     <div class="container">
       <div class="header">
@@ -34,11 +34,17 @@
         <h3 class="text-muted">IIIT-D Finance Management</h3>
       </div>
 
-      <form class="form-horizontal" action='' method="POST">
+      <form class="form-horizontal" action="signup_final" method="POST">
   <fieldset>
     <div id="legend">
       <legend class="">Sign up</legend>
     </div>
+    <%String[] a=(String[] )request.getAttribute("signup_info"); %>
+    <input type="hidden"  name="name" value="<% out.println(a[0]); %>" />
+    <input type="hidden"  name="mail" value="<% out.println(a[1]); %>" />
+    <input type="hidden"  name="phone" value="<% out.println(a[2]); %>" />
+    <input type="hidden"  name="add" value="<% out.println(a[3]); %>" />
+    <input type="hidden"  name="role" value="<% out.println(a[4]); %>" />
     <div class="control-group">
       <!-- emp ID -->
       <label class="control-label" for="empid">Employee ID</label>
@@ -49,11 +55,11 @@
     </div>
 
 	<div class="control-group">
-      <!-- Department -->
-      <label class="control-label" for="dept">Department</label>
+      <!-- Designation -->
+      <label class="control-label" for="designation">Designation</label>
       <div class="controls">
-        <input type="text" id="dept" name="dept" placeholder="" class="input-xlarge">
-        <p class="help-block">Please mention your Department </p>
+        <input type="text" id="designation" name="designation" placeholder="" class="input-xlarge">
+        <p class="help-block">Please mention your Designation </p>
       </div>
     </div>
 	
@@ -79,9 +85,9 @@
     <div class="control-group">
       <!-- Button -->
       <div class="controls">
-	  <label><input type="checkbox" name="terms"> I agree with the <a href="#">Terms and Conditions</a>.</label><br>
+	  <label><input type="checkbox" name="terms" value="1"> I agree with the <a href="#">Terms and Conditions</a>.</label><br>
         <button class="btn btn-success" name = "confirm">Confirm</button>
-		<button class="btn btn-danger" name = "cancel">Cancel</button>
+		<button class="btn btn-danger" name = "cancel" value="1">Cancel</button>
       </div>
     </div>
   </fieldset>
