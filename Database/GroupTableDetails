@@ -1,0 +1,31 @@
+/**
+ * 
+ */
+package iFM.Model;
+
+import com.google.appengine.api.datastore.Entity;
+
+/**
+ * @author Priyam
+ *
+ */
+public class GroupTableDetails {
+	// for Priority : 11(for members and admin common table)
+	private Entity GroupTable;
+    
+    public GroupTableDetails(int Serial no,String date,String paid/received,String purpose,String amount,String approve) {            
+    	this.GroupTable = new Entity(GroupTable.GroupTableDetailsKind,Serial no);
+    	
+        this.GroupTable.setProperty("Date", date);
+        this.GroupTable.setProperty("Paid/Received", paid/received);
+        this.GroupTable.setProperty("Purpose", purpose);
+   		this.GroupTable.setProperty("Amount", amount);
+   		this.GroupTable.setProperty("Approve", approve);
+   		
+    }
+
+    public Entity getEntity() {
+            return this.GroupTable;
+    }
+    
+}
