@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns="http://java.sun.com/xml/ns/javaee"
+xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+	<servlet>
+		<servlet-name>IFM</servlet-name>
+		<servlet-class>iFM.IFMServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>IFM</servlet-name>
+		<url-pattern>/ifm</url-pattern>
+	</servlet-mapping>
+	
+	
+	<servlet>
+		<servlet-name>login</servlet-name>
+		<servlet-class>iFM.login</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>login</servlet-name>
+		<url-pattern>/login</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>transaction</servlet-name>
+		<servlet-class>iFM.transaction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>transaction</servlet-name>
+		<url-pattern>/transaction</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>test</servlet-name>
+		<servlet-class>iFM.test</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>test</servlet-name>
+		<url-pattern>/test</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>NewUser</servlet-name>
+		<servlet-class>iFM.NewUser</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>NewUser</servlet-name>
+		<url-pattern>/NewUser</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>profile</servlet-name>
+		<servlet-class>iFM.profile</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>profile</servlet-name>
+		<url-pattern>/profile</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>home</servlet-name>
+		<servlet-class>iFM.home</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>home</servlet-name>
+		<url-pattern>/home</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>signup</servlet-name>
+		<servlet-class>iFM.Signup</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>signup</servlet-name>
+		<url-pattern>/signup</url-pattern>
+	</servlet-mapping>
+
+
+
+	<servlet>
+		<servlet-name>mailhandler</servlet-name>
+  		<servlet-class>iFM.MailHandlerServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>mailhandler</servlet-name>
+		<url-pattern>/_ah/mail/support@iiitdfm.appspotmail.com</url-pattern>
+	</servlet-mapping>
+	
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>mail</web-resource-name>
+			<url-pattern>/_ah/mail/*</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>admin</role-name>
+		</auth-constraint>
+	</security-constraint>
+
+	
+	
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+	</welcome-file-list>
+</web-app>

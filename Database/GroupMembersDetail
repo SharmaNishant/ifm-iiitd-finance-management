@@ -1,0 +1,27 @@
+/**
+ * 
+ */
+package iFM.Model;
+
+import com.google.appengine.api.datastore.Entity;
+
+/**
+ * @author Priyam
+ *
+ */
+public class GroupmembersDetails {
+	// for Priority : 9(for registered user and admin)
+	private Entity Groupmembers;
+    
+    public GroupmembersDetails(String group members,int Groupmembers_id) {            
+    	this.Groupmembers = new Entity(Groupmembers.GroupmembersDetailsKind, Groupmembers_id);
+    	
+        this.Groupmembers.setProperty("Group Members", group members);
+   
+    }
+
+    public Entity getEntity() {
+            return this.Groupmembers;
+    }
+    
+}
