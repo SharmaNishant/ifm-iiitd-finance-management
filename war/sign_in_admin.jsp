@@ -1,4 +1,12 @@
 <!DOCTYPE html>
+
+<%@page import = "java.util.*" %>
+<%@page import = "com.google.appengine.api.datastore.Entity" %>
+<% Entity profile=(Entity)request.getAttribute("profile");
+	ArrayList<Entity> trans = (ArrayList<Entity>) request.getAttribute("all_trans");
+	ArrayList<String> notify = (ArrayList<String>) request.getAttribute("notify");
+%>
+
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -37,7 +45,7 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-		  <li><a style="color:white; ">IIIT-D Finance Management</a></li>
+          <li><a style="color:white; ">IIIT-D Finance Management</a></li>
             <li class="active"><a href="#">Home</a></li>
             <li><a href="#profile">Profile</a></li>
             <li><a href="#transaction">Transaction</a></li>
@@ -132,28 +140,24 @@
 					<th> Description</th>
 				</tr>
 				
-				<tr>
-					<td> Serial No</td>
-					<td> Paid By</td>
-					<td> Recieved By</td>
-					<td> Amount</td>
-					<td> Date</td>
-					<td> Description</td>
-				</tr><tr>
-					<td> Serial No</td>
-					<td> Paid By</td>
-					<td> Recieved By</td>
-					<td> Amount</td>
-					<td> Date</td>
-					<td> Description</td>
-				</tr><tr>
-					<td> Serial No</td>
-					<td> Paid By</td>
-					<td> Recieved By</td>
-					<td> Amount</td>
-					<td> Date</td>
-					<td> Description</td>
-				</tr>
+			<%if(trans.size()<1) 
+			out.print("<tr>  <td colspan=\"6\" align=\"center\"><h3>No Transactions For You!</h3></td></tr>");
+			else
+			{
+				for(int i=0;i<(trans.size()-1) && i<500 ;i++)
+				{
+					Entity temp = trans.get(i);
+					out.print("<tr>\n");
+					out.print("<td>"+(i+1)+"</td>\n");
+					out.print("<td>"+ temp.getProperty("Paid_By") +"</td>\n");
+					out.print("<td>"+temp.getProperty("Received_By")+" </td>\n");
+					out.print("<td>"+temp.getProperty("Amount")+" </td>\n");
+					out.print("<td>"+temp.getProperty("Date")+" </td>\n");
+					out.print("<td>"+temp.getProperty("Description")+" </td>\n");
+					out.print("</tr>\n\n\n");
+				}
+			}
+			%>
 				
 			</table>
 			</form>

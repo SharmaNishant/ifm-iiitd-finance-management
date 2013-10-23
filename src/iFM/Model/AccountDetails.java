@@ -15,7 +15,7 @@ public class AccountDetails {
 	
 	public AccountDetails(String token, String email, String password) {
 		
-		this.Account = new Entity("Account Details", email);
+		this.Account = new Entity(Users.accountDetailsKind, email);
 		
 		this.Account.setProperty("Email", email);
 		this.Account.setProperty("Password", password);

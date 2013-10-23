@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <%@page import = "java.util.*" %>
 <%@page import = "com.google.appengine.api.datastore.Entity" %>
-<% Entity profile=(Entity)request.getAttribute("profile");%>
+<% Entity profile=(Entity)request.getAttribute("profile");
+	ArrayList<Entity> trans = (ArrayList<Entity>) request.getAttribute("all_trans");
+	ArrayList<String> notify = (ArrayList<String>) request.getAttribute("notify");
+%>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -37,11 +40,10 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-		  <li><a style="color:white; ">IIIT-D Finance Management</a></li>
+          <li><a style="color:white; ">IIIT-D Finance Management</a></li>
             <li class="active"><a href="#">Home</a></li>
             <li><a href="/profile?mail=<%=profile.getProperty("Email")%>">Profile</a></li>
             <li><a href="/transaction?mail=<%=profile.getProperty("Email")%>">Transaction</a></li>
@@ -136,28 +138,24 @@
 					<th> Description</th>
 				</tr>
 				
-				<tr>
-					<td> Serial No</td>
-					<td> Paid By</td>
-					<td> Recieved By</td>
-					<td> Amount</td>
-					<td> Date</td>
-					<td> Description</td>
-				</tr><tr>
-					<td> Serial No</td>
-					<td> Paid By</td>
-					<td> Recieved By</td>
-					<td> Amount</td>
-					<td> Date</td>
-					<td> Description</td>
-				</tr><tr>
-					<td> Serial No</td>
-					<td> Paid By</td>
-					<td> Recieved By</td>
-					<td> Amount</td>
-					<td> Date</td>
-					<td> Description</td>
-				</tr>
+			<%if(trans == null) 
+			out.print("<tr>  <td colspan=\"6\" align=\"center\">No Transactions For You!</td></tr>");
+			else
+			{
+				for(int i=0;i<(trans.size()-1) && i<5;i++)
+				{
+					Entity temp = trans.get(i);
+					out.print("<tr>\n");
+					out.print("<td>"+(i+1)+"</td>\n");
+					out.print("<td>"+ temp.getProperty("Paid_By") +"</td>\n");
+					out.print("<td>"+temp.getProperty("Received_By")+" </td>\n");
+					out.print("<td>"+temp.getProperty("Amount")+" </td>\n");
+					out.print("<td>"+temp.getProperty("Date")+" </td>\n");
+					out.print("<td>"+temp.getProperty("Description")+" </td>\n");
+					out.print("</tr>\n\n\n");
+				}
+			}
+			%>
 				
 			</table>
 			</form>
@@ -176,11 +174,20 @@
             <a href="#" class="list-group-item active">
               NOTIFICATIONS
             </a>
-            <a href="#" class="list-group-item" name ="list1">LIST</a>
-            <a href="#" class="list-group-item" name ="list2">LIST</a>
-            <a href="#" class="list-group-item" name ="list3">LIST</a>
-			<a href="#" class="list-group-item" name ="list4">LIST</a>
-            <a href="#" class="list-group-item" name ="list5">See More</a>
+					<%  if(notify == null)
+					{
+						//<li name="list2">Link</li>;
+						out.println("<li name=\"temp\" >Nothing New Here</li>"); 
+					}
+					else
+					{
+						for(int i=0;i<notify.size();i++)
+						{
+							String t = notify.get(i);
+							out.println("<li name=\""+i+"\">"+t+"</li>");
+						}
+					}
+						%>
           </div>
 		  </form>
 		
