@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author Greg Bakos <greg@londonfreelancers.co.uk>
  */
 @SuppressWarnings("serial")
-public class Signup extends HttpServlet {
+public class vAcc extends HttpServlet {
 
     /**
      * Processes requests for both HTTP
@@ -31,68 +31,6 @@ public class Signup extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-<<<<<<< local
-
-    	String fname=request.getParameter("firstname");
-    	String lname=request.getParameter("lastname");
-    	String mail=request.getParameter("email");
-    	String phone=request.getParameter("phone");
-    	String add1=request.getParameter("address1");
-    	String add2=request.getParameter("address2");
-    	String city=request.getParameter("city");
-    	String state=request.getParameter("state");
-    	String coun=request.getParameter("country");
-    	String zip=request.getParameter("zip");	
-    	String role=request.getParameter("role");
-    	
-    	if(!(fname.isEmpty() || lname.isEmpty() || mail.isEmpty() || phone.isEmpty() || add1.isEmpty() || city.isEmpty() || state.isEmpty() || coun.isEmpty() || zip.isEmpty() || role.isEmpty()))
-    	{
-    		String name=fname+" "+lname;
-    		String add=add1+", "+add2+", "+city+", "+state+", "+coun+", "+zip;
-    		String[] signup_info = {name,mail,phone,add,role};
-    		request.setAttribute("signup_info", signup_info);
-    		if(role.equals("STU"))
-    		{
-    			request.getRequestDispatcher("sign_up_stu.html").forward(request, response);
-    		}
-    		else if(role.equals("FAC"))
-    		{
-    			request.getRequestDispatcher("sign_up_fac.html").forward(request, response);
-    		}
-    		else if(role.equals("STA"))
-    		{
-    			request.getRequestDispatcher("sign_up_staff.html").forward(request, response);
-    		}
-    		else
-    		{
-    			request.getRequestDispatcher("sign_up.html").forward(request, response);
-    		}
-    	}
-    	else
-    	{
-    		request.getRequestDispatcher("sign_up.html").forward(request, response);
-    	}
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-=======
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
@@ -100,16 +38,15 @@ public class Signup extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet singup</title>");            
+            out.println("<title>Servlet vAcc</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet singup at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet vAcc at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         } finally {            
             out.close();
         }
->>>>>>> other
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

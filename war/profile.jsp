@@ -38,10 +38,10 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a style="color:white; ">IIIT-D Finance Management</a>
-        </div>
+          </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
+		  <li><a style="color:white; ">IIIT-D Finance Management</a></li>
             <li><a href="home?mail=<%=profile.getProperty("Email")%>" >Home</a></li>
             <li class="active"><a href="#">Profile</a></li>
             <% //String a=re[0]) %>
@@ -107,7 +107,7 @@
 				<h1><br></h1>
 					<blockquote>
 						<h3 name = "user_name"><% out.print(profile.getProperty("Name")); %></h3>
-							<p name = "user_no"><% out.print(profile.getProperty("Institute_ID")); %></p>
+							<p name = "user_no"><% out.print(profile.getProperty("Name")); %></p>
 							<small><cite title="Source Title" name = "user_mail"><% out.print(profile.getProperty("Email")); %> <i class="icon-map-marker"></i></cite></small>
 							
 					</blockquote>
@@ -183,6 +183,11 @@
 					<td> <h3 name="user_designation"><% out.print(profile.getProperty("Designation"));%></h3></td>
 				</tr>
 				
+				<tr>
+					<td><br>
+						<button type="button" class="btn btn-lg btn-info" name="change_profile">Change Profile</button>
+					</td>
+				</tr>
 				</table>
 			</form>	
 			</div>
