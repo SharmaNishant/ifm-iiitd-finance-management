@@ -25,8 +25,8 @@ public class logout extends HttpServlet {
 		response.setHeader("Pragma", "no-cache");//reverting back to login even after logout(back)
 		
 		
-		request.getSession().invalidate();
-		response.sendRedirect(request.getContextPath() + "/login.jsp");
+		
+		
 		
 		HttpSession session= request.getSession();
 		
