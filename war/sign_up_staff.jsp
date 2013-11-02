@@ -59,7 +59,7 @@
       <label class="control-label" for="designation">Designation</label>
       <div class="controls">
         <input type="text" id="designation" name="designation" placeholder="" class="input-xlarge">
-        <p class="help-block">Please mention yor Designation </p>
+        <p class="help-block">Please mention your Designation </p>
       </div>
     </div>
 	
@@ -85,9 +85,9 @@
     <div class="control-group">
       <!-- Button -->
       <div class="controls">
-	  <label><input type="checkbox" name="terms"> I agree with the <a href="#">Terms and Conditions</a>.</label><br>
+	  <label><input type="checkbox" name="terms" value="1"> I agree with the <a href="#">Terms and Conditions</a>.</label><br>
         <button class="btn btn-success" name = "confirm">Confirm</button>
-		<button class="btn btn-danger" name = "cancel">Cancel</button>
+		<button class="btn btn-danger" name = "cancel" value="1">Cancel</button>
       </div>
     </div>
   </fieldset>

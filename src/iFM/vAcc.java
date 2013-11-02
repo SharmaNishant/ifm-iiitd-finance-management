@@ -4,25 +4,20 @@
  */
 package iFM;
 
-import iFM.Model.Transactions;
-import iFM.Model.Users;
-
 import java.io.IOException;
-import java.util.ArrayList;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.google.appengine.api.datastore.Entity;
-
 /**
  *
  * @author Greg Bakos <greg@londonfreelancers.co.uk>
  */
 @SuppressWarnings("serial")
-public class profile extends HttpServlet {
+public class vAcc extends HttpServlet {
 
     /**
      * Processes requests for both HTTP
@@ -36,17 +31,22 @@ public class profile extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-    	String mail = request.getParameter("mail");
-		Entity user = Users.getProfile(mail);
-		request.setAttribute("user", user);
-		
-    	ArrayList<Entity> tran = Transactions.getAllTransactions(mail);
-    	ArrayList<String> top5 = Transactions.getLatest5Transactions(mail);
-    	request.setAttribute("all_trans", tran);
-    	request.setAttribute("notify", top5);
-		
-		request.getRequestDispatcher("profile.jsp").forward(request, response);       
+        response.setContentType("text/html;charset=UTF-8");
+        PrintWriter out = response.getWriter();
+        try {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet vAcc</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet vAcc at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
+        } finally {            
+            out.close();
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

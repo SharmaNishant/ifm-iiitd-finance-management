@@ -5,7 +5,6 @@
 package iFM;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -14,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Greg Bakos <greg@londonfreelancers.co.uk>
+ * @author Nishant Sharma
  */
 @SuppressWarnings("serial")
 public class Signup extends HttpServlet {
@@ -31,7 +30,6 @@ public class Signup extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-<<<<<<< local
 
     	String fname=request.getParameter("firstname");
     	String lname=request.getParameter("lastname");
@@ -53,15 +51,15 @@ public class Signup extends HttpServlet {
     		request.setAttribute("signup_info", signup_info);
     		if(role.equals("STU"))
     		{
-    			request.getRequestDispatcher("sign_up_stu.html").forward(request, response);
+    			request.getRequestDispatcher("sign_up_stu.jsp").forward(request, response);
     		}
     		else if(role.equals("FAC"))
     		{
-    			request.getRequestDispatcher("sign_up_fac.html").forward(request, response);
+    			request.getRequestDispatcher("sign_up_fac.jsp").forward(request, response);
     		}
     		else if(role.equals("STA"))
     		{
-    			request.getRequestDispatcher("sign_up_staff.html").forward(request, response);
+    			request.getRequestDispatcher("sign_up_staff.jsp").forward(request, response);
     		}
     		else
     		{
@@ -72,44 +70,6 @@ public class Signup extends HttpServlet {
     	{
     		request.getRequestDispatcher("sign_up.html").forward(request, response);
     	}
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-=======
-        response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-        try {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet singup</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet singup at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        } finally {            
-            out.close();
-        }
->>>>>>> other
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
