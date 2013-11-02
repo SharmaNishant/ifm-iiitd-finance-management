@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <%@page import = "java.util.*" %>
 <%@page import = "com.google.appengine.api.datastore.Entity" %>
-<% Entity profile=(Entity)request.getAttribute("user");%>
+<% Entity profile=(Entity)request.getAttribute("user");
+ArrayList<String> notify = (ArrayList<String>) request.getAttribute("notify");
+%>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -38,15 +40,13 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a style="color:white; ">IIIT-D Finance Management</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
+          <li><a style="color:white; ">IIIT-D Finance Management</a></li>
             <li><a href="home?mail=<%=profile.getProperty("Email")%>" >Home</a></li>
             <li class="active"><a href="#">Profile</a></li>
-            <% //String a=re[0]) %>
             <li><a href="transaction?mail=<%=profile.getProperty("Email")%>" >Transaction</a></li>
-            </li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><a href="../navbar/">Settings</a></li>
@@ -122,12 +122,22 @@
 		<div class="col-sm-3">
 			<div class="well sidebar-nav">
 				<ul class="nav">
-					<li>Notifications</li>
-					<li class="active" name="list1"><a href="#">Link</a></li>
-					<li name="list1"><a href="#">Link</a></li>
-					<li name="list2"><a href="#">Link</a></li>
-					<li name="list3"><a href="#">Link</a></li>
-					<li name="list4"><a href="#">See More</a></li>
+					<li><h3>Notifications</h3></li>
+					<%
+					if(notify == null)
+					{
+						out.println("<li name=\"temp\" >Nothing New Here</li>"); 
+					}
+					else
+					{
+						for(int i=0;i<notify.size();i++)
+						{
+							String t = notify.get(i);
+							out.println("<li name=\""+i+"\">"+t+"</li>");
+						}
+					}
+					%>
+
 			</div>
 		</div>
 		</form>

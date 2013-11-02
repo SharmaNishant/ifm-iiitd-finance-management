@@ -57,7 +57,7 @@
       <label class="control-label" for="stream">Stream</label>
       <div class="controls">
         <input type="text" id="stream" name="stream" placeholder="" class="input-xlarge">
-        <p class="help-block">Please mention yor Stream : CSE/ECE </p>
+        <p class="help-block">Please mention your Stream : CSE/ECE </p>
       </div>
     </div>
 	
@@ -85,7 +85,7 @@
       <div class="controls">
 	  <label><input type="checkbox" name="terms" value="1"> I agree with the <a href="#">Terms and Conditions</a>.</label><br>
         <button class="btn btn-success" name = "confirm">Confirm</button>
-		<button class="btn btn-danger" name = "cancel">Cancel</button>
+		<button class="btn btn-danger" name = "cancel" value="1">Cancel</button>
       </div>
     </div>
   </fieldset>

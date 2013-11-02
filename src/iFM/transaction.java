@@ -4,20 +4,25 @@
  */
 package iFM;
 
+import iFM.Model.Transactions;
 import iFM.Model.Users;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
+
+
 import com.google.appengine.api.datastore.Entity;
 
 /**
  *
- * @author Greg Bakos <greg@londonfreelancers.co.uk>
+ * @author Nishant Sharma
  */
 @SuppressWarnings("serial")
 public class transaction extends HttpServlet {
@@ -37,6 +42,11 @@ public class transaction extends HttpServlet {
 
     	String mail=request.getParameter("mail");
     	Entity user = Users.getProfile(mail);
+    	
+    	ArrayList<Entity> tran = Transactions.getAllTransactions(mail);
+    	ArrayList<String> top5 = Transactions.getLatest5Transactions(mail);
+    	request.setAttribute("all_trans", tran);
+    	request.setAttribute("notify", top5);
     	request.setAttribute("profile", user);
     	request.getRequestDispatcher("transaction.jsp").forward(request, response);
     }

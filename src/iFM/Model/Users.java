@@ -149,6 +149,23 @@ public class Users {
 		return null;		
 	}
 	
+	
+	public static String getNameByToken(String token) {
+		Key key = KeyFactory.createKey(userDetailsKind, token);
+		try {
+			DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+			
+			Entity entity = datastore.get(key);
+			
+			return (String) entity.getProperty("Name");
+		} catch (EntityNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+	
 	/**
 	 * Returns the password for the user with provided email
 	 * @param email
