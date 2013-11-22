@@ -214,6 +214,8 @@
 		<form>
 		  <button type="button" class="btn btn-lg btn-info" name ="query">Send a Query</button> 
 		  <br><br><br>
+		  <button type="button" class="btn btn-lg btn-success" name="query">Request for Grant</button>
+		  <br><br><br>
 		  <button type="button" class="btn btn-lg btn-danger" name ="feedbck">FEEDBACK</button>
 		 </div>
         </form>

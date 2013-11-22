@@ -45,8 +45,8 @@
           <ul class="nav navbar-nav">
           <li><a style="color:white; ">IIIT-D Finance Management</a></li>
             <li class="active"><a href="#">Home</a></li>
-            <li><a href="/profile?mail=<%=profile.getProperty("Email")%>">Profile</a></li>
-            <li><a href="/transaction?mail=<%=profile.getProperty("Email")%>">Transaction</a></li>
+            <li><a href="/profile">Profile</a></li>
+            <li><a href="/transaction">Transaction</a></li>
             
             </li>
           </ul>
@@ -208,6 +208,8 @@
 		<br>
 		<form>
 		  <button type="button" class="btn btn-lg btn-info" name ="query">Send a Query</button> 
+		  <br><br><br>
+		  <button type="button" class="btn btn-lg btn-success" name="query">Request for Grant</button>
 		  <br><br><br>
 		  <button type="button" class="btn btn-lg btn-danger" name ="feedbck">FEEDBACK</button>
 		 </div>
