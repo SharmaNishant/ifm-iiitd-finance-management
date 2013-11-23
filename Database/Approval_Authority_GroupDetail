@@ -1,0 +1,32 @@
+/**
+ * 
+ */
+package iFM.Model;
+
+import com.google.appengine.api.datastore.Entity;
+
+/**
+ * @author Priyam
+ *
+ */
+public class Approval_Authority_GroupDetails {
+	// for Priority : 10(from authority side)
+	private Entity Approval_Authority_Group;
+    
+    public GroupmembersDetails(String group name,String group detail,String studentName,String approve,int Approve_ID) {            
+    	this.Approval_Authority_Group = new Entity(classApproval_Authority_Group.classApproval_Authority_GroupDetailsKind,Approve_ID);
+    	
+    	
+    	
+        this.Approval_Authority_Group.setProperty("Group Name", group name);
+        this.Approval_Authority_Group.setProperty("Group Details", group detail);
+        this.Approval_Authority_Group.setProperty("StudentName", studentName);
+   		this.Approval_Authority_Group.setProperty("Approve", approve);
+   		
+    }
+
+    public Entity getEntity() {
+            return this.Approval_Authority_Group;
+    }
+    
+}

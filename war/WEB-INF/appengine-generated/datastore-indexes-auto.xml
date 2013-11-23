@@ -1,0 +1,17 @@
+<!-- Indices written at Fri, 22 Nov 2013 01:29:16 IST -->
+
+<datastore-indexes>
+
+    <!-- Used 1 time in query history -->
+    <datastore-index kind="Transaction_Details" ancestor="false" source="auto">
+        <property name="Paid_By" direction="asc"/>
+        <property name="Date" direction="desc"/>
+    </datastore-index>
+
+    <!-- Used 1 time in query history -->
+    <datastore-index kind="Transaction_Details" ancestor="false" source="auto">
+        <property name="Received_By" direction="asc"/>
+        <property name="Date" direction="desc"/>
+    </datastore-index>
+
+</datastore-indexes>
