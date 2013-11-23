@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -33,6 +34,7 @@ public class login extends HttpServlet {
             throws ServletException, IOException {
     		
     		String mail = request.getParameter("mail");
+    		
     		mail=mail.split("@iiitd.ac.in")[0];
     		mail=mail+"@iiitd.ac.in";
     		if(mail.isEmpty())
@@ -57,8 +59,13 @@ public class login extends HttpServlet {
     		    	request.setAttribute("all_trans", tran);
     		    	request.setAttribute("notify", top5);
     				
-    				if(Users.getVerified(mail))
+    		    	if(Users.getVerified(mail)){
+    					Cookie cook = new Cookie("mail",mail);
+    					cook.setMaxAge(30*60);
+    					response.addCookie(cook);
     					request.getRequestDispatcher("profile.jsp").forward(request, response);
+    				}
+    			
     				else
     					request.getRequestDispatcher("index.html").forward(request, response);
     			}

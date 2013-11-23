@@ -44,9 +44,9 @@ ArrayList<String> notify = (ArrayList<String>) request.getAttribute("notify");
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
           <li><a style="color:white; ">IIIT-D Finance Management</a></li>
-            <li><a href="home?mail=<%=profile.getProperty("Email")%>" >Home</a></li>
+            <li><a href="home" >Home</a></li>
             <li class="active"><a href="#">Profile</a></li>
-            <li><a href="transaction?mail=<%=profile.getProperty("Email")%>" >Transaction</a></li>
+            <li><a href="transaction" >Transaction</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><a href="../navbar/">Settings</a></li>
@@ -95,7 +95,7 @@ ArrayList<String> notify = (ArrayList<String>) request.getAttribute("notify");
 				<h1></h1>
 					
 				<h2><br></h2>
-				&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/userPic/<%out.print(profile.getProperty("Email")); %>.jpg" name = "user_pic"height = "200" width = "200" alt="" class="img-rounded">
+				&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/userPic/name.jpg" name = "user_pic"height = "200" width = "200" alt="" class="img-rounded">
 				</div>
 			</div>
 		</div>

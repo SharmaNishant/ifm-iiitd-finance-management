@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -36,8 +37,32 @@ public class profile extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+    	boolean flag=false; 
+    	String userName = "";
+    	{Cookie[] cookies = request.getCookies();
+    	if(cookies !=null){
+    	for(Cookie cookie : cookies){
+    	    if(cookie.getName().equals("mail"))
+    	    	{
+    	    		userName = cookie.getValue();
+    	    		flag=true;
+    	    	}
 
-    	String mail = request.getParameter("mail");
+    	}
+    	}
+    	else
+    	{
+    		request.getRequestDispatcher("index.html").forward(request, response);
+    	}
+
+
+    	response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); 
+    	response.setHeader("Pragma", "no-cache"); 
+    	response.setDateHeader("Expires", 0); 
+    	}
+    	
+    	if(flag==true){
+    	String mail = userName;//request.getParameter("mail");
 		Entity user = Users.getProfile(mail);
 		request.setAttribute("user", user);
 		
@@ -47,8 +72,12 @@ public class profile extends HttpServlet {
     	request.setAttribute("notify", top5);
 		
 		request.getRequestDispatcher("profile.jsp").forward(request, response);       
+    	}
+    	else
+    	{
+    		request.getRequestDispatcher("index.html").forward(request, response);
+    	}
     }
-
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP

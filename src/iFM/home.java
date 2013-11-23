@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,11 +19,35 @@ public class home extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+    	boolean flag=false;
+    	String name = "";
+    	{
+    		Cookie[] cookies = request.getCookies();
+    		if(cookies !=null){
+    			for(Cookie cookie : cookies){
+    				if(cookie.getName().equals("mail"))
+    				{
+    					name = cookie.getValue();
+    					flag=true;
+    				}
+
+    			}
+    		}
+    		else
+    		{
+    			request.getRequestDispatcher("index.html").forward(request, response);
+    		}
+    		response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); 
+    		response.setHeader("Pragma", "no-cache"); 
+    		response.setDateHeader("Expires", 0); 
+    	}
     	
-	
-    
-    	String mail=request.getParameter("mail");
     	
+    	
+    	if(flag==true)
+    	{	    
+    	String mail=name;//request.getParameter("mail");
+
     	ArrayList<Entity> tran = Transactions.getAllTransactions(mail);
     	ArrayList<String> top5 = Transactions.getLatest5Transactions(mail);
     	request.setAttribute("all_trans", tran);
@@ -30,7 +55,11 @@ public class home extends HttpServlet {
     	Entity user = Users.getProfile(mail);
     	request.setAttribute("profile", user);
     	request.getRequestDispatcher("sign_in_normal.jsp").forward(request, response);
-            
+    	}
+    	else
+    	{
+        		request.getRequestDispatcher("index.html").forward(request, response);
+    	}
     }
     
 	
