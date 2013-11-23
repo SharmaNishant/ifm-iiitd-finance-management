@@ -51,14 +51,11 @@ public class transaction extends HttpServlet {
     				if(cookie.getName().equals("mail"))
     				{
     					name = cookie.getValue();
-<<<<<<< local
     					if(name.equals(""))
     					{
     						request.getRequestDispatcher("index.html").forward(request, response);
     		    			return;
     					}
-=======
->>>>>>> other
     					flag=true;
     				}
 
@@ -67,10 +64,7 @@ public class transaction extends HttpServlet {
     		else
     		{
     			request.getRequestDispatcher("index.html").forward(request, response);
-<<<<<<< local
     			return;
-=======
->>>>>>> other
     		}
     		response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); 
     		response.setHeader("Pragma", "no-cache"); 

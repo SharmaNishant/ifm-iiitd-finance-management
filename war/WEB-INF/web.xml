@@ -15,6 +15,15 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 		<servlet-name>login</servlet-name>
 		<url-pattern>/login</url-pattern>
 	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>logout</servlet-name>
+		<servlet-class>iFM.Logout</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>logout</servlet-name>
+		<url-pattern>/logout</url-pattern>
+	</servlet-mapping>
 	
 	<servlet>
 		<servlet-name>transaction</servlet-name>

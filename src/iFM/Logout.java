@@ -6,6 +6,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.*;
 
 
+@SuppressWarnings("serial")
 public class Logout extends HttpServlet {
 	
 	public void processrequest(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
