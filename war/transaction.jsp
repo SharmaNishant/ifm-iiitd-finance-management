@@ -48,8 +48,8 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
            <li><a style="color:white; ">IIIT-D Finance Management</a></li>
-            <li><a href="/home?mail=<%=profile.getProperty("Email")%>">Home</a></li>
-            <li><a href="/profile?mail=<%=profile.getProperty("Email")%>">Profile</a></li>
+            <li><a href="/home">Home</a></li>
+            <li><a href="/profile">Profile</a></li>
             <li class="active"><a href="#">Transaction</a></li>
             
             </li>
