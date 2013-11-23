@@ -62,10 +62,7 @@ public class login extends HttpServlet {
     		    	if(Users.getVerified(mail)){
     					Cookie cook = new Cookie("mail",mail);
     					cook.setMaxAge(30*60);
-<<<<<<< local
     					cook.setPath("/");
-=======
->>>>>>> other
     					response.addCookie(cook);
     					request.getRequestDispatcher("profile.jsp").forward(request, response);
     				}

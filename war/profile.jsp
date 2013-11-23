@@ -58,7 +58,7 @@ ArrayList<String> notify = (ArrayList<String>) request.getAttribute("notify");
                 <li><a href="#">Change Password</a></li>
                 <li><a href="#">Help</a></li>
 				<li><a href="#">FeedBack</a></li>
-                <li><a href="index.html">Logout</a></li>
+                <li><a href="/logout">Logout</a></li>
                 </ul>
           </ul>
         </div><!--/.nav-collapse -->

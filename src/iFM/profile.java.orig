@@ -45,14 +45,11 @@ public class profile extends HttpServlet {
     	    if(cookie.getName().equals("mail"))
     	    	{
     	    		userName = cookie.getValue();
-<<<<<<< local
     	    		if(userName.equals(""))
 					{
 						request.getRequestDispatcher("index.html").forward(request, response);
 		    			return;
 					}
-=======
->>>>>>> other
     	    		flag=true;
     	    	}
 
@@ -61,10 +58,7 @@ public class profile extends HttpServlet {
     	else
     	{
     		request.getRequestDispatcher("index.html").forward(request, response);
-<<<<<<< local
     		return;
-=======
->>>>>>> other
     	}
 
 
