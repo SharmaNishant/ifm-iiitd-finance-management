@@ -1,7 +1,7 @@
 /**
  * 
  */
-package iFM.Model;
+package iFM.Model.Users;
 
 import java.util.ArrayList;
 
