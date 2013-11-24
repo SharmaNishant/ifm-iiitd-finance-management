@@ -4,7 +4,6 @@
 package iFM.Model.Groups;
 
 import java.io.UnsupportedEncodingException;
-import java.util.Date;
 import java.util.Properties;
 
 import javax.mail.Message;
@@ -27,7 +26,6 @@ import com.google.appengine.api.datastore.KeyFactory;
  */
 public class Groups {
 	public static String groupDetailsKind = "Group_Details";
-	public static String groupCoordinatorsKind = "Group_Coordinators";
 	
 	private static void sendEmail(String email, String token) {
 		String messageBody =
@@ -75,47 +73,15 @@ public class Groups {
 	}
 	
 	/**
-	 * Returns Entity of kind "User Details", containing the profile parameters for the user with the provided email
+	 * Returns Entity of kind "Group Details", containing the group details (name, description, no. of coords/members)
 	 * 
-	 * @param email
+	 * @param name - Group Name
 	 * @return Entity if found, null otherwise
 	 * @author Rishav
 	 */
 	public static Entity getGroupDetails(String name) {
 		
 		Key key = KeyFactory.createKey(groupDetailsKind, name);
-		try {
-			DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
-			
-			Entity entity = datastore.get(key);
-			
-			System.out.println(entity.getProperty("Email"));
-			
-			String token = (String)entity.getProperty("Token");
-			
-			key = KeyFactory.createKey(userDetailsKind, token);
-			
-			Entity userDetails = datastore.get(key);
-			
-			return userDetails;
-		} catch (EntityNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		return null;		
-	}
-	
-	/**
-	 * Returns Entity of kind "User Details", containing the profile parameters for the user with the provided token
-	 * 
-	 * @param token
-	 * @return Entity if found, null otherwise
-	 * @author Rishav
-	 */
-	public static Entity getProfileByToken(String token) {
-		
-		Key key = KeyFactory.createKey(userDetailsKind, token);
 		try {
 			DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
 			
@@ -130,151 +96,15 @@ public class Groups {
 		return null;		
 	}
 	
-	
-	public static String getNameByToken(String token) {
-		Key key = KeyFactory.createKey(userDetailsKind, token);
-		try {
-			DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
-			
-			Entity entity = datastore.get(key);
-			
-			return (String) entity.getProperty("Name");
-		} catch (EntityNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		return null;
-	}
-	
 	/**
-	 * Returns the password for the user with provided email
-	 * @param email
-	 * @return password if found, null otherwise
-	 * @author Rishav
-	 */
-	public static String getPassword(String email) {
-		
-		Key key = KeyFactory.createKey(accountDetailsKind, email);
-		
-		try {
-			DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
-			
-			Entity entity = datastore.get(key);
-			
-			System.out.println(entity.getProperty("Email"));
-			
-			String password = (String)entity.getProperty("Password");
-			
-			return password;
-			
-		} catch (EntityNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		return null;		
-	}
-	
-	/**
-	 * Returns the system-generated token for the user with provided email
-	 * @param email
-	 * @return token if found, null otherwise
-	 * @author Rishav
-	 */
-	public static String getToken(String email) {
-		
-		Key key = KeyFactory.createKey(accountDetailsKind, email);
-		
-		try {
-			DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
-			
-			Entity entity = datastore.get(key);
-			
-			System.out.println(entity.getProperty("Email"));
-			
-			String token = (String)entity.getProperty("Token");
-			
-			return token;
-			
-		} catch (EntityNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		return null;		
-	}
-
-	/**
-	 * Returns whether the provided email is verified or not
+	 * Checks if the provided group already exists in the database
 	 * 
-	 * @param email
-	 * @return true if verified, false otherwise
-	 * @author Rishav
-	 */
-	public static boolean getVerified(String email) {
-		Key key = KeyFactory.createKey(accountDetailsKind, email);
-		
-		try {
-			DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
-			
-			Entity entity = datastore.get(key);
-			
-			System.out.println(entity.getProperty("Verified"));
-			
-			boolean verified = (boolean)entity.getProperty("Verified");
-			
-			return verified;
-			
-		} catch (EntityNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		return false;
-	}
-
-	/**
-	 * Sets the email account as Verified
-	 * 
-	 * @param email
-	 * @return true if successful, false otherwise
-	 * @author Rishav
-	 */
-	public static boolean setVerified(String email) {
-		
-		Key key = KeyFactory.createKey(accountDetailsKind, email);
-		
-		try {
-			DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
-			
-			Entity entity = datastore.get(key);
-			
-			System.out.println(entity.getProperty("Verified"));
-			
-			entity.setProperty("Verified", true);
-			
-			datastore.put(entity);
-			
-			return true;
-			
-		} catch (EntityNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		return false;
-	}
-
-	/**
-	 * Checks if the provided email already exists in the database
-	 * 
-	 * @param email
+	 * @param name
 	 * @return true if exists, false otherwise
 	 * @author Rishav
 	 */
-	public static boolean checkExistingUser(String email) {
-		Key key = KeyFactory.createKey(accountDetailsKind, email);
+	public static boolean checkExistingGroup(String name) {
+		Key key = KeyFactory.createKey(groupDetailsKind, name);
 		
 		try {
 			DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
@@ -284,6 +114,41 @@ public class Groups {
 			System.out.println(entity);
 			
 			return true;
+			
+		} catch (EntityNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return false;
+	}
+	
+	/**
+	 * increases the no. of coordinators for a group
+	 * 
+	 * @param name
+	 * @return true if added, false if coordinator cannot be added
+	 */
+	static boolean addCoordinator(String name) {
+		
+		Key key = KeyFactory.createKey(groupDetailsKind, name);
+		
+		try {
+			DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+			
+			Entity entity = datastore.get(key);
+
+			int num_coords = (int) entity.getProperty("No_of_Coordinators");
+			
+			if(num_coords <= 5) {
+				num_coords++;
+				
+				entity.setProperty("No_of_Coordinators", num_coords);
+				
+				datastore.put(entity);
+				
+				return true;
+			}			
 			
 		} catch (EntityNotFoundException e) {
 			// TODO Auto-generated catch block
