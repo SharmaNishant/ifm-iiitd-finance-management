@@ -1,7 +1,7 @@
 package iFM;
 
-import iFM.Model.Transactions;
-import iFM.Model.Users;
+import iFM.Model.Users.Transactions;
+import iFM.Model.Users.Users;
 
 import java.io.IOException;
 import java.util.ArrayList;

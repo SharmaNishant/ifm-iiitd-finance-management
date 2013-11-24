@@ -1,6 +1,6 @@
 package iFM;
 
-import iFM.Model.Users;
+import iFM.Model.Users.Users;
 
 import java.io.IOException;
 

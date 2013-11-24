@@ -1,7 +1,7 @@
 /**
  * 
  */
-package iFM.Model;
+package iFM.Model.Groups;
 
 import java.io.UnsupportedEncodingException;
 import java.util.Date;
@@ -27,11 +27,7 @@ import com.google.appengine.api.datastore.KeyFactory;
  */
 public class Groups {
 	public static String groupDetailsKind = "Group_Details";
-	
-	private static String generateToken(String roll) {
-		Date now = new Date();
-		return now.getTime() + roll;
-	}
+	public static String groupCoordinatorsKind = "Group_Coordinators";
 	
 	private static void sendEmail(String email, String token) {
 		String messageBody =
@@ -61,35 +57,21 @@ public class Groups {
 	}
 	
 	/**
-	 * Adds a new user to the database
+	 * Add new group to database
 	 * 
 	 * @param name
-	 * @param email
-	 * @param password
-	 * @param instituteid
-	 * @param phone
-	 * @param address
-	 * @param role
-	 * @param designation
-	 * @author Rishav
+	 * @param description
 	 */
-	public static void addUser(String name, String email, String password, String instituteid, String phone, String address, String role, String designation) {
+	public static void addGroup(String name, String description) {
+			
+		GroupDetails newGroup = new GroupDetails(name, description);
 		
-		String token = generateToken(instituteid);
-		
-		System.out.println("Generated Token for " + name + " : " + token);
-		
-		UserDetails newUser = new UserDetails(token, name, email, instituteid, phone, address, role, designation);
-		AccountDetails newAccount = new AccountDetails(token, email, password);
-		
-		Entity userEntity = newUser.getEntity();
-		Entity accountEntity = newAccount.getEntity();
+		Entity groupEntity = newGroup.getEntity();
 		
 		DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
-		datastore.put(userEntity);
-		datastore.put(accountEntity);
+		datastore.put(groupEntity);
 		
-		sendEmail(email, token);
+//		sendEmail(email, token);
 	}
 	
 	/**
@@ -99,9 +81,9 @@ public class Groups {
 	 * @return Entity if found, null otherwise
 	 * @author Rishav
 	 */
-	public static Entity getProfile(String email) {
+	public static Entity getGroupDetails(String name) {
 		
-		Key key = KeyFactory.createKey(accountDetailsKind, email);
+		Key key = KeyFactory.createKey(groupDetailsKind, name);
 		try {
 			DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
 			
