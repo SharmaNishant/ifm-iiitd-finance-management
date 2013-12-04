@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.png">
+
+    <title>Create new group</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="../../assets/js/html5shiv.js"></script>
+      <script src="../../assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Custom styles for this template -->
+    <link href="css/carousel.css" rel="stylesheet">
+  </head>
+<!-- NAVBAR
+================================================== -->
+  <body>
+  
+  <form>
+  
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+		    <li><a style="color:white; ">IIIT-D Finance Management</a></li>
+            <li><a href="sign_in_normal.jsp">Home</a></li>
+            <li><a href="profile.jsp">Profile</a></li>
+            <li><a href="transaction.jsp">Transaction</a></li>
+        
+          </ul>
+            <ul class="nav navbar-nav navbar-right">
+                        
+			<li class="dropdown">
+              <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"><img src="images/S.jpg"  
+			  style="width:20px;height:20px;" class="img-circle" id="navbarimg"> &nbsp;User Name <b class="caret"></b></a>
+              <ul class="dropdown-menu" role = "menu">
+                <li><a href="#">Change Password</a></li>
+                <li><a href="#">Help</a></li>
+				<li><a href="#">FeedBack</a></li>
+                <li><a href="#">Logout</a></li>
+                </ul>
+          </ul>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </div>
+
+	</form>
+
+    <!-- Carousel
+    ================================================== -->
+    <div id="description">
+		<div class= "col-md-12">
+			<h1>&nbsp;</h1>
+			<h1>&nbsp;</h1>
+		</div>
+	
+	<form>	
+	
+	 	<div class=" featurette">
+		
+			<div class="col-md-5" align ="center">
+			  <img src="images/new_group.jpg" width="350" height="350">
+			  <br><br>
+					
+			
+			</div>
+			
+			<div class="col-md-6">
+			<form>
+			<br>
+				<table border="0" CELLSPACING="6" CELLPADDING="7">
+				  <col width="250">
+				  <col width="550">
+				  
+				<tr>
+					<td> <h4><b>Concerned Person </b></h4></td>
+					<td> 
+						<input type="text" name = "concerned_email" placeholder="Enter the email address of the Concerned Person" class="form-control">
+					</td>
+				</tr>
+						
+				<tr>
+				
+					<td> <h4><b>Group Name </b></h4></td>
+					<td> 
+						<input type="text" name = "group_name" placeholder="Suggest a Group Name" class="form-control">
+					</td>
+				</tr>
+				
+				<tr>
+					<td> <h4><b>Description</b></h4></td>
+					<td> 
+						 <textarea class="form-control counted" name="query_desc" placeholder="What's in your mind related to this group?" 
+						 rows="3" style="margin-bottom:10px;"></textarea> 
+					</td>
+				</tr>
+								
+				</table>
+				<br>
+				<p class="lead"align ="left" >Attach any survey result or file (if any)  </p>
+			  <p class = "lead" align = "left">
+				<button type="button" class="btn btn-lg btn-success" name="scrrenshot" >Upload a File</button>
+				No File Attached</p>
+			  
+			  
+			  <p class = "lead" ><a href = "profile.jsp"><button type="button" class="btn btn-lg btn-primary" name="send" >Send</button></a>
+			  &nbsp;&nbsp;
+			  <a href = "group_list.html"><button type="button" class="btn btn-lg btn-danger" name="cancel" >Cancel</button></a></p>
+			  
+			  
+			</form>
+			</div>
+		</div>
+	  
+	  </form>
+	  
+    </div><!-- /.carousel -->
+
+    <div class="container marketing">
+
+    
+
+      <!-- /END THE FEATURETTES -->
+
+
+      <!-- FOOTER -->
+     <footer>
+	 
+        <div class="container">
+		
+			<p class="text-muted credit">Contact us at: <a>iiitd.finance.management@gmail.com</a></p>
+			<p>&copy; SE Project 2013</p>
+		</div>
+    </footer>
+
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="assets/js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="assets/js/holder.js"></script>
+  </body>
+</html>
