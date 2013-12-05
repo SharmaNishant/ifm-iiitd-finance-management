@@ -196,6 +196,36 @@ public class Users {
 	}
 	
 	/**
+	 * Returns the password for the user with provided email
+	 * @param email
+	 * @param password
+	 * @return true if changed, null otherwise
+	 * @author Rishav
+	 */
+	public static boolean setPassword(String email, String password) {
+		
+		Key key = KeyFactory.createKey(accountDetailsKind, email);
+		
+		try {
+			DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+			
+			Entity entity = datastore.get(key);
+			
+			System.out.println(entity.getProperty("Email"));
+						
+			entity.setProperty("Password", password);
+						
+			return true;
+			
+		} catch (EntityNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return false;		
+	}
+	
+	/**
 	 * Returns the system-generated token for the user with provided email
 	 * @param email
 	 * @return token if found, null otherwise
