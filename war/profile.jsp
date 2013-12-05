@@ -207,8 +207,6 @@ ArrayList<String> notify = (ArrayList<String>) request.getAttribute("notify");
 					  <li>Groups</li>
 					  <li><a href="#">Join a Group</a></li>
 					  <li><a href="#">Create a Group</a></li>
-					  <li name="list1"><a href="#">Group 1</a></li>
-					  <li name="list2"><><a href="#">Group 2</a></li>
 					  <li name="list3"><><a href="#">See More</a></li>
 					  </ul>
 			</div>

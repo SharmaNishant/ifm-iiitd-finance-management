@@ -165,8 +165,6 @@
 					  <li>Groups</li>
 					  <li><a href="#">Join a Group</a></li>
 					  <li><a href="#">Create a Group</a></li>
-					  <li><a href="#">Group 1</a></li>
-					  <li><a href="#">Group 2</a></li>
 					  <li><a href="#">See More</a></li>
 					  </ul>
 			</div>
