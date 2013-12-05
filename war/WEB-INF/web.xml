@@ -44,6 +44,17 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	</servlet-mapping>
 
 	<servlet>
+		<servlet-name>changePassword</servlet-name>
+		<servlet-class>iFM.changePassword</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>changePassword</servlet-name>
+		<url-pattern>/changePassword</url-pattern>
+	</servlet-mapping>
+
+
+
+	<servlet>
 		<servlet-name>NewUser</servlet-name>
 		<servlet-class>iFM.NewUser</servlet-class>
 	</servlet>
