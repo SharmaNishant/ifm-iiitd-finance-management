@@ -55,7 +55,7 @@
               <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"><img src="images/userPic/<%out.print(profile.getProperty("Email")); %>.jpg"  
 			  style="width:20px;height:20px;" class="img-circle" id="navbarimg"> &nbsp;<%out.print(profile.getProperty("Name")); %><b class="caret"></b></a>
               <ul class="dropdown-menu" role = "menu">
-                <li><a href="#">Change Password</a></li>
+                <li><a href="password_change.html">Change Password</a></li>
                 <li><a href="mailto:iiitd.finance.management@gmail.com?Subject=Support">Help</a></li>
 				<li><a href="mailto:iiitd.finance.management@gmail.com?Subject=Feedback">FeedBack</a></li>
                 <li><a href="/logout">Logout</a></li>

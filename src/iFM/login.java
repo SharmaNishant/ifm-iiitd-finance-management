@@ -37,6 +37,7 @@ public class login extends HttpServlet {
     		
     		mail=mail.split("@iiitd.ac.in")[0];
     		mail=mail+"@iiitd.ac.in";
+    		mail=mail.toLowerCase();
     		if(mail.isEmpty())
     		{
 				request.getRequestDispatcher("index.html").forward(request, response);

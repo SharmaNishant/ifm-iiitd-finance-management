@@ -215,6 +215,8 @@ public class Users {
 						
 			entity.setProperty("Password", password);
 						
+			datastore.put(entity);
+			
 			return true;
 			
 		} catch (EntityNotFoundException e) {

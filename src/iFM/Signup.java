@@ -48,6 +48,7 @@ public class Signup extends HttpServlet {
     	String role=request.getParameter("role");
     	//Entity user = Users.getProfile(mail);
 //    	if()
+    	mail=mail.toLowerCase();
     	if(!mail.contains("@iiitd.ac.in"))
     	{
     		request.getRequestDispatcher("sign_up.html").forward(request, response);
