@@ -198,8 +198,6 @@
             </a>
             <a href="#" class="list-group-item">Join a Group</a>
             <a href="#" class="list-group-item">Create a Group</a>
-            <a href="#" class="list-group-item" name ="list1">LIST</a>
-			<a href="#" class="list-group-item" name ="list2">LIST</a>
             <a href="#" class="list-group-item" name ="list3">See More</a>
           </div>
 		<form>
